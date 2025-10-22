@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' http://127.0.0.1:* https://yourdomain.com; font-src 'self';"
+    />
+    <title>
+      Regex Creator - Generate Regular Expressions Online | Free Regex Maker
+      Tool
+    </title>
+    <meta
+      name="description"
+      content="Free online regex creator tool - Generate regular expressions instantly for email, phone, URL patterns. Visual regex creator with real-time testing. No registration required."
+    />
+    <meta
+      name="keywords"
+      content="regex creator,regex generator,regular expression creator,online regex creator,regex builder,free regex creator,regex maker"
+    />
+
+    <!-- hreflang links -->
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://yourdomain.com/regex-creator/"
+    />
+    <link
+      rel="alternate"
+      hreflang="zh-CN"
+      href="https://yourdomain.com/regex-creator/zh/"
+    />
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://yourdomain.com/regex-creator/de/"
+    />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://yourdomain.com/regex-creator/es/"
+    />
+    <link
+      rel="alternate"
+      hreflang="fr"
+      href="https://yourdomain.com/regex-creator/fr/"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://yourdomain.com/regex-creator/"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Regex Creator - Free Online Regular Expression Creator Tool",
+        "url": "https://yourdomain.com/regex-creator/",
+        "description": "Free online regex creator tool for generating regular expressions",
+        "mainEntity": {
+          "@type": "SoftwareApplication",
+          "name": "Regex Creator",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../en/">
+            <img src="../assets/logo.png" alt="Regex Creator" class="logo" />
+            <h1>Regex Creator</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../en/">Home</a>
+          <a href="index.html" class="active">Creator</a>
+          <a href="regex-builder/">Builder</a>
+          <a href="regex-checker/">Checker</a>
+          <a href="regex-online/">Online</a>
+          <a href="regex-tester/">Tester</a>
+        </div>
+        <div class="nav-lang">
+          <a href="index.html" class="active">EN</a>
+          <a href="zh/">中文</a>
+          <a href="de/">DE</a>
+          <a href="es/">ES</a>
+          <a href="fr/">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>Regex Creator - Free Online Regular Expression Creator</h2>
+        <p>
+          Create regular expressions instantly with our intelligent regex
+          creator tool. Generate patterns for email, phone, URL, and more with
+          visual configuration.
+        </p>
+      </section>
+
+      <section class="creator-section">
+        <div class="creator-container">
+          <div class="creator-sidebar">
+            <h3>Pattern Types</h3>
+            <div class="type-selector">
+              <button class="type-btn active" data-type="email">
+                Email Address
+              </button>
+              <button class="type-btn" data-type="phone">Phone Number</button>
+              <button class="type-btn" data-type="url">URL Link</button>
+              <button class="type-btn" data-type="ip">IP Address</button>
+              <button class="type-btn" data-type="date">Date Format</button>
+              <button class="type-btn" data-type="number">Number Format</button>
+              <button class="type-btn" data-type="password">Password</button>
+              <button class="type-btn" data-type="custom">
+                Custom Pattern
+              </button>
+            </div>
+
+            <div class="config-panel">
+              <h3>Configuration Options</h3>
+              <div id="config-options">
+                <!-- Dynamic configuration options -->
+              </div>
+            </div>
+          </div>
+
+          <div class="creator-main">
+            <div class="result-panel">
+              <h3>Generated Regex Pattern</h3>
+              <div class="regex-output">
+                <textarea
+                  id="regex-output"
+                  readonly
+                  placeholder="Your generated regular expression will appear here"
+                ></textarea>
+                <button id="copy-regex" class="btn btn-primary">
+                  Copy Regex
+                </button>
+              </div>
+
+              <div class="test-section">
+                <h4>Test Your Pattern</h4>
+                <textarea
+                  id="test-text"
+                  placeholder="Enter text to test your regex pattern..."
+                ></textarea>
+                <div id="match-results"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features-section">
+        <h3>Why Choose Our Regex Creator?</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>🎯 Smart Pattern Recognition</h4>
+            <p>
+              Our regex creator intelligently recognizes common patterns and
+              generates optimized regular expressions.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h4>⚡ Real-time Testing</h4>
+            <p>
+              Test your created regex patterns instantly with our built-in
+              testing tool.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h4>📚 Multiple Formats</h4>
+            <p>Support for various programming languages and regex engines.</p>
+          </div>
+          <div class="feature-card">
+            <h4>🔧 Visual Configuration</h4>
+            <p>
+              Easy-to-use interface for configuring regex patterns without
+              coding knowledge.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad slot -->
+      <div class="ad-slot"></div>
+
+      <!-- Affiliate section -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Regex Creator. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="../en/">Home</a>
+          <a href="regex-builder/">Regex Builder</a>
+          <a href="regex-checker/">Regex Checker</a>
+          <a href="regex-tester/">Regex Tester</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/regex-creator.js"></script>
+  </body>
+</html>

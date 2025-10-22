@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正则表达式检查器 - 验证正则语法 | 免费正则验证工具</title>
+    <meta
+      name="description"
+      content="免费在线正则表达式检查器 - 验证和检查正则表达式语法。实时验证、错误检测和性能分析的正则模式测试。"
+    />
+    <meta
+      name="keywords"
+      content="正则表达式检查器,regex checker,正则表达式验证器,正则语法检查器,在线正则检查器,正则验证工具"
+    />
+
+    <!-- hreflang links -->
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://yourdomain.com/regex-checker/"
+    />
+    <link
+      rel="alternate"
+      hreflang="zh-CN"
+      href="https://yourdomain.com/regex-checker/zh/"
+    />
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://yourdomain.com/regex-checker/de/"
+    />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://yourdomain.com/regex-checker/es/"
+    />
+    <link
+      rel="alternate"
+      hreflang="fr"
+      href="https://yourdomain.com/regex-checker/fr/"
+    />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="canonical" href="https://yourdomain.com/regex-checker/zh/" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "正则表达式检查器 - 在线正则表达式验证和语法检查工具",
+        "url": "https://yourdomain.com/regex-checker/zh/",
+        "description": "免费在线正则表达式检查器，用于验证和检查正则表达式语法"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../../zh/">
+            <img
+              src="../../assets/logo.png"
+              alt="正则表达式检查器"
+              class="logo"
+            />
+            <h1>正则表达式检查器</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../../zh/">首页</a>
+          <a href="../../regex-creator/zh/">创建器</a>
+          <a href="../../regex-builder/zh/">构建器</a>
+          <a href="index.html" class="active">检查器</a>
+          <a href="../../regex-online/zh/">在线工具</a>
+          <a href="../../regex-tester/zh/">测试器</a>
+        </div>
+        <div class="nav-lang">
+          <a href="../index.html">EN</a>
+          <a href="index.html" class="active">中文</a>
+          <a href="../de/">DE</a>
+          <a href="../es/">ES</a>
+          <a href="../fr/">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>正则表达式检查器 - 在线正则表达式验证工具</h2>
+        <p>
+          使用我们全面的正则表达式检查器验证和检查您的正则表达式。获得即时语法验证、错误检测和性能分析。
+        </p>
+      </section>
+
+      <section class="checker-section">
+        <div class="checker-container">
+          <div class="checker-input">
+            <h3>输入您的正则表达式模式</h3>
+            <textarea
+              id="regex-input"
+              placeholder="在这里输入您的正则表达式模式..."
+            ></textarea>
+            <div class="input-controls">
+              <button id="validate-regex" class="btn btn-primary">验证</button>
+              <button id="clear-input" class="btn btn-secondary">清空</button>
+            </div>
+          </div>
+
+          <div class="checker-results">
+            <h3>验证结果</h3>
+            <div id="validation-status" class="status-panel">
+              <div class="status-indicator">
+                <span class="status-icon">✓</span>
+                <span class="status-text">准备验证</span>
+              </div>
+            </div>
+
+            <div class="results-grid">
+              <div class="result-card">
+                <h4>语法检查</h4>
+                <div id="syntax-result" class="result-content">
+                  <span class="result-text">未输入模式</span>
+                </div>
+              </div>
+
+              <div class="result-card">
+                <h4>性能分析</h4>
+                <div id="performance-result" class="result-content">
+                  <span class="result-text">无可用分析</span>
+                </div>
+              </div>
+
+              <div class="result-card">
+                <h4>错误检测</h4>
+                <div id="error-result" class="result-content">
+                  <span class="result-text">未检测到错误</span>
+                </div>
+              </div>
+
+              <div class="result-card">
+                <h4>优化建议</h4>
+                <div id="optimization-result" class="result-content">
+                  <span class="result-text">无可用建议</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="test-section">
+        <h3>测试您的正则表达式模式</h3>
+        <div class="test-container">
+          <div class="test-input">
+            <h4>测试字符串</h4>
+            <textarea
+              id="test-string"
+              placeholder="输入要测试正则表达式模式的文本..."
+            ></textarea>
+          </div>
+          <div class="test-results">
+            <h4>匹配结果</h4>
+            <div id="match-results" class="match-output">
+              <div class="no-results">未输入测试字符串</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features-section">
+        <h3>高级正则表达式检查器功能</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>🔍 语法验证</h4>
+            <p>全面的语法检查，提供详细的错误报告和建议。</p>
+          </div>
+          <div class="feature-card">
+            <h4>⚡ 性能分析</h4>
+            <p>分析正则表达式性能，识别潜在的优化机会。</p>
+          </div>
+          <div class="feature-card">
+            <h4>🛠️ 错误检测</h4>
+            <p>检测常见的正则表达式错误并提供有用的修正建议。</p>
+          </div>
+          <div class="feature-card">
+            <h4>💡 优化建议</h4>
+            <p>获得智能建议来改进您的正则表达式模式和性能。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 广告位 -->
+      <div class="ad-slot"></div>
+
+      <!-- 联盟推广区 -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 正则表达式检查器. 保留所有权利.</p>
+        <div class="footer-links">
+          <a href="../../zh/">首页</a>
+          <a href="../../regex-creator/zh/">正则创建器</a>
+          <a href="../../regex-builder/zh/">正则构建器</a>
+          <a href="../../regex-tester/zh/">正则测试器</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/regex-checker.js"></script>
+  </body>
+</html>

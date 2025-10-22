@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regex Tutorial - Vollständiger Leitfaden zum Lernen regulärer Ausdrücke</title>
+    <meta
+      name="description"
+      content="Vollständiges Tutorial zum Lernen regulärer Ausdrücke, von der Grundsyntax bis zu fortgeschrittenen Anwendungen, enthält zahlreiche Beispiele und Übungen, um Ihnen zu helfen, Regex-Fähigkeiten schnell zu meistern."
+    />
+    <meta
+      name="keywords"
+      content="regex tutorial,reguläre ausdruck tutorial,regex lernen,regex syntax,regex beispiele"
+    />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+
+    <!-- hreflang links -->
+    <link rel="alternate" hreflang="zh-CN" href="../../regex-tutorial/" />
+    <link rel="alternate" hreflang="en" href="../../regex-tutorial/en/" />
+    <link rel="alternate" hreflang="es" href="../../regex-tutorial/es/" />
+    <link rel="alternate" hreflang="fr" href="../../regex-tutorial/fr/" />
+    <link rel="alternate" hreflang="de" href="../../regex-tutorial/de/" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Regex Tutorial",
+        "url": "https://yourdomain.com/regex-tutorial/de/",
+        "description": "Vollständiges Tutorial zum Lernen regulärer Ausdrücke von der Grundsyntax bis zu fortgeschrittenen Anwendungen"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../../de/">
+            <img src="../../assets/logo.png" alt="Regex Tutorial" class="logo" />
+            <h1>Regex Tutorial</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../../de/">Startseite</a>
+          <a href="../../regex-creator/de/">Generator</a>
+          <a href="../../regex-tester/de/">Tester</a>
+          <a href="../../regex-examples/de/">Beispiele</a>
+          <a href="index.html" class="active">Tutorial</a>
+        </div>
+        <div class="nav-lang">
+          <a href="../index.html">中文</a>
+          <a href="../en/index.html">EN</a>
+          <a href="../es/index.html">ES</a>
+          <a href="../fr/index.html">FR</a>
+          <a href="index.html" class="active">DE</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>Regex Tutorial</h2>
+        <p>Vollständiger Leitfaden zum Lernen regulärer Ausdrücke vom Anfänger zum Experten</p>
+      </section>
+
+      <section class="tutorial-section">
+        <div class="tutorial-sidebar">
+          <h3>Tutorial-Inhalte</h3>
+          <nav class="tutorial-nav">
+            <a href="#basics" class="nav-link active">Grundsyntax</a>
+            <a href="#metacharacters" class="nav-link">Metazeichen</a>
+            <a href="#quantifiers" class="nav-link">Quantifizierer</a>
+            <a href="#character-classes" class="nav-link">Zeichenklassen</a>
+            <a href="#groups" class="nav-link">Gruppen</a>
+            <a href="#anchors" class="nav-link">Anker</a>
+            <a href="#flags" class="nav-link">Flags</a>
+            <a href="#advanced" class="nav-link">Fortgeschrittene Techniken</a>
+            <a href="#practice" class="nav-link">Übungsaufgaben</a>
+          </nav>
+        </div>
+
+        <div class="tutorial-content">
+          <article id="basics" class="tutorial-chapter active">
+            <h3>Grundsyntax</h3>
+            <p>
+              Reguläre Ausdrücke sind mächtige Text-Matching-Tools, die verwendet werden, um spezifische Muster in Strings zu finden, zu ersetzen oder zu validieren.
+            </p>
+
+            <h4>Was sind reguläre Ausdrücke?</h4>
+            <p>
+              Reguläre Ausdrücke sind Muster, die aus gewöhnlichen Zeichen und Sonderzeichen bestehen und verwendet werden, um Matching-Regeln für Strings zu beschreiben.
+            </p>
+
+            <div class="example-box">
+              <h5>Einfache Beispiele:</h5>
+              <div class="code-block">
+                <code>hello</code> - matches den String "hello"
+              </div>
+              <div class="code-block"><code>\d</code> - matches jede Ziffer</div>
+              <div class="code-block">
+                <code>[a-z]</code> - matches jeden Kleinbuchstaben
+              </div>
+            </div>
+
+            <h4>Grundlegende Komponenten</h4>
+            <ul>
+              <li><strong>Gewöhnliche Zeichen</strong>: matcht das Zeichen selbst direkt</li>
+              <li><strong>Metazeichen</strong>: Zeichen mit spezieller Bedeutung</li>
+              <li><strong>Quantifizierer</strong>: spezifizieren die Anzahl der Matches</li>
+              <li><strong>Zeichenklassen</strong>: matcht ein beliebiges Zeichen aus einer Gruppe</li>
+            </ul>
+          </article>
+
+          <article id="metacharacters" class="tutorial-chapter">
+            <h3>Metazeichen</h3>
+            <p>Metazeichen sind Sonderzeichen, die in regulären Ausdrücken eine spezielle Bedeutung haben.</p>
+
+            <div class="example-box">
+              <h5>Häufige Metazeichen:</h5>
+              <div class="code-block"><code>.</code> - matches jedes Zeichen außer Zeilenvorschub</div>
+              <div class="code-block"><code>^</code> - matches den Anfang eines Strings</div>
+              <div class="code-block"><code>$</code> - matches das Ende eines Strings</div>
+              <div class="code-block"><code>*</code> - matches 0 oder mehr des vorherigen Elements</div>
+              <div class="code-block"><code>+</code> - matches 1 oder mehr des vorherigen Elements</div>
+              <div class="code-block"><code>?</code> - matches 0 oder 1 des vorherigen Elements</div>
+            </div>
+          </article>
+
+          <article id="quantifiers" class="tutorial-chapter">
+            <h3>Quantifizierer</h3>
+            <p>Quantifizierer spezifizieren, wie oft ein Zeichen oder eine Gruppe gematcht werden soll.</p>
+
+            <div class="example-box">
+              <h5>Häufige Quantifizierer:</h5>
+              <div class="code-block"><code>{n}</code> - matches genau n mal</div>
+              <div class="code-block"><code>{n,}</code> - matches n oder mehr mal</div>
+              <div class="code-block"><code>{n,m}</code> - matches zwischen n und m mal</div>
+            </div>
+          </article>
+
+          <article id="character-classes" class="tutorial-chapter">
+            <h3>Zeichenklassen</h3>
+            <p>Zeichenklassen ermöglichen es Ihnen, ein beliebiges Zeichen aus einer Gruppe von Zeichen zu matchen.</p>
+
+            <div class="example-box">
+              <h5>Häufige Zeichenklassen:</h5>
+              <div class="code-block"><code>[abc]</code> - matches a, b oder c</div>
+              <div class="code-block"><code>[a-z]</code> - matches jeden Kleinbuchstaben</div>
+              <div class="code-block"><code>[0-9]</code> - matches jede Ziffer</div>
+              <div class="code-block"><code>[^abc]</code> - matches jedes Zeichen außer a, b oder c</div>
+            </div>
+          </article>
+
+          <article id="groups" class="tutorial-chapter">
+            <h3>Gruppen</h3>
+            <p>Gruppen ermöglichen es Ihnen, Quantifizierer auf mehrere Zeichen anzuwenden und gematchten Text zu erfassen.</p>
+
+            <div class="example-box">
+              <h5>Gruppen-Beispiele:</h5>
+              <div class="code-block"><code>(abc)</code> - matches "abc" als Gruppe</div>
+              <div class="code-block"><code>(abc)+</code> - matches eine oder mehrere "abc"-Gruppen</div>
+              <div class="code-block"><code>(a|b)</code> - matches entweder "a" oder "b"</div>
+            </div>
+          </article>
+
+          <article id="anchors" class="tutorial-chapter">
+            <h3>Anker</h3>
+            <p>Anker spezifizieren die Position im String, an der ein Match auftreten soll.</p>
+
+            <div class="example-box">
+              <h5>Häufige Anker:</h5>
+              <div class="code-block"><code>^</code> - String-Anfang</div>
+              <div class="code-block"><code>$</code> - String-Ende</div>
+              <div class="code-block"><code>\b</code> - Wortgrenze</div>
+              <div class="code-block"><code>\B</code> - Nicht-Wortgrenze</div>
+            </div>
+          </article>
+
+          <article id="flags" class="tutorial-chapter">
+            <h3>Flags</h3>
+            <p>Flags modifizieren, wie der reguläre Ausdruck interpretiert wird.</p>
+
+            <div class="example-box">
+              <h5>Häufige Flags:</h5>
+              <div class="code-block"><code>g</code> - globales Matching (finde alle Matches)</div>
+              <div class="code-block"><code>i</code> - Groß-/Kleinschreibung ignorieren</div>
+              <div class="code-block"><code>m</code> - Mehrzeilenmodus</div>
+              <div class="code-block"><code>s</code> - Punkt matcht Zeilenvorschub</div>
+            </div>
+          </article>
+
+          <article id="advanced" class="tutorial-chapter">
+            <h3>Fortgeschrittene Techniken</h3>
+            <p>Fortgeschrittene Techniken für reguläre Ausdrücke für komplexe Muster-Matching.</p>
+
+            <div class="example-box">
+              <h5>Fortgeschrittene Muster:</h5>
+              <div class="code-block"><code>(?=pattern)</code> - positive Lookahead</div>
+              <div class="code-block"><code>(?!pattern)</code> - negative Lookahead</div>
+              <div class="code-block"><code>(?<=pattern)</code> - positive Lookbehind</div>
+              <div class="code-block"><code>(?<!pattern)</code> - negative Lookbehind</div>
+            </div>
+          </article>
+
+          <article id="practice" class="tutorial-chapter">
+            <h3>Übungsaufgaben</h3>
+            <p>Testen Sie Ihr Wissen mit diesen praktischen Übungen.</p>
+
+            <div class="practice-exercises">
+              <div class="exercise">
+                <h4>Übung 1: E-Mail-Validierung</h4>
+                <p>Erstellen Sie einen Regex zur Validierung von E-Mail-Adressen.</p>
+                <div class="code-block">
+                  <code>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$</code>
+                </div>
+              </div>
+
+              <div class="exercise">
+                <h4>Übung 2: Telefonnummer</h4>
+                <p>Erstellen Sie einen Regex zum Matchen von Telefonnummern.</p>
+                <div class="code-block">
+                  <code>^1[3-9]\d{9}$</code>
+                </div>
+              </div>
+
+              <div class="exercise">
+                <h4>Übung 3: Datumsformat</h4>
+                <p>Erstellen Sie einen Regex zum Matchen des YYYY-MM-DD Datumsformats.</p>
+                <div class="code-block">
+                  <code>^\d{4}-\d{2}-\d{2}$</code>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Ad slot -->
+      <div class="ad-slot"></div>
+
+      <!-- Affiliate section -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Regex Tutorial. Alle Rechte vorbehalten.</p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regex Generator - Smart Regular Expression Generator</title>
+    <meta
+      name="description"
+      content="Smart regular expression generator, supports email, phone, ID card, URL and other common regex generation with visual configuration interface."
+    />
+    <meta
+      name="keywords"
+      content="regex generator,regular expression generator,regex tool,email regex,phone regex"
+    />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+
+    <!-- hreflang links -->
+    <link rel="alternate" hreflang="zh-CN" href="../../regex-creator/" />
+    <link rel="alternate" hreflang="en" href="../../regex-creator/en/" />
+    <link rel="alternate" hreflang="es" href="../../regex-creator/es/" />
+    <link rel="alternate" hreflang="fr" href="../../regex-creator/fr/" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Regex Generator",
+        "url": "https://yourdomain.com/regex-creator/en/",
+        "description": "Smart regular expression generator supporting multiple common regex patterns"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../../en/">
+            <img
+              src="../../assets/logo.png"
+              alt="Regex Generator"
+              class="logo"
+            />
+            <h1>Regex Generator</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../../en/">Home</a>
+          <a href="index.html" class="active">Generator</a>
+          <a href="../../regex-tester/en/">Tester</a>
+          <a href="../../regex-examples/en/">Examples</a>
+          <a href="../../regex-tutorial/en/">Tutorial</a>
+        </div>
+        <div class="nav-lang">
+          <a href="../index.html">中文</a>
+          <a href="index.html" class="active">EN</a>
+          <a href="../es/index.html">ES</a>
+          <a href="../fr/index.html">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>Regex Generator</h2>
+        <p>Smart regular expression generator with visual configuration</p>
+      </section>
+
+      <section class="creator-section">
+        <div class="creator-container">
+          <div class="creator-sidebar">
+            <h3>Select Type</h3>
+            <div class="type-selector">
+              <button class="type-btn active" data-type="email">
+                Email Address
+              </button>
+              <button class="type-btn" data-type="phone">Phone Number</button>
+              <button class="type-btn" data-type="idcard">ID Card</button>
+              <button class="type-btn" data-type="url">URL Link</button>
+              <button class="type-btn" data-type="ip">IP Address</button>
+              <button class="type-btn" data-type="date">Date Format</button>
+              <button class="type-btn" data-type="number">Number Format</button>
+              <button class="type-btn" data-type="custom">Custom</button>
+            </div>
+
+            <div class="config-panel">
+              <h3>Configuration Options</h3>
+              <div id="config-options">
+                <!-- Dynamic configuration options -->
+              </div>
+            </div>
+          </div>
+
+          <div class="creator-main">
+            <div class="result-panel">
+              <h3>Generated Result</h3>
+              <div class="regex-output">
+                <textarea
+                  id="regex-output"
+                  readonly
+                  placeholder="Generated regular expression will appear here"
+                ></textarea>
+                <button id="copy-regex" class="btn btn-primary">
+                  Copy Regex
+                </button>
+              </div>
+
+              <div class="test-section">
+                <h4>Test Matching</h4>
+                <textarea
+                  id="test-text"
+                  placeholder="Enter text to test..."
+                ></textarea>
+                <div id="match-results"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad slot -->
+      <div class="ad-slot"></div>
+
+      <!-- Affiliate section -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Regex Generator. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/regex-creator.js"></script>
+  </body>
+</html>

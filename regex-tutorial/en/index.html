@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regex Tutorial - Complete Regular Expression Learning Guide</title>
+    <meta
+      name="description"
+      content="Complete regular expression learning tutorial, from basic syntax to advanced applications, includes numerous examples and exercises to help you quickly master regex skills."
+    />
+    <meta
+      name="keywords"
+      content="regex tutorial,regular expression tutorial,regex learning,regex syntax,regex examples"
+    />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+
+    <!-- hreflang links -->
+    <link rel="alternate" hreflang="zh-CN" href="../../regex-tutorial/" />
+    <link rel="alternate" hreflang="en" href="../../regex-tutorial/en/" />
+    <link rel="alternate" hreflang="es" href="../../regex-tutorial/es/" />
+    <link rel="alternate" hreflang="fr" href="../../regex-tutorial/fr/" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Regex Tutorial",
+        "url": "https://yourdomain.com/regex-tutorial/en/",
+        "description": "Complete regular expression learning tutorial from basic syntax to advanced applications"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../../en/">
+            <img src="../../assets/logo.png" alt="Regex Tutorial" class="logo" />
+            <h1>Regex Tutorial</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../../en/">Home</a>
+          <a href="../../regex-creator/en/">Generator</a>
+          <a href="../../regex-tester/en/">Tester</a>
+          <a href="../../regex-examples/en/">Examples</a>
+          <a href="index.html" class="active">Tutorial</a>
+        </div>
+        <div class="nav-lang">
+          <a href="../index.html">中文</a>
+          <a href="index.html" class="active">EN</a>
+          <a href="../es/index.html">ES</a>
+          <a href="../fr/index.html">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>Regex Tutorial</h2>
+        <p>Complete regular expression learning guide from beginner to expert</p>
+      </section>
+
+      <section class="tutorial-section">
+        <div class="tutorial-sidebar">
+          <h3>Tutorial Contents</h3>
+          <nav class="tutorial-nav">
+            <a href="#basics" class="nav-link active">Basic Syntax</a>
+            <a href="#metacharacters" class="nav-link">Metacharacters</a>
+            <a href="#quantifiers" class="nav-link">Quantifiers</a>
+            <a href="#character-classes" class="nav-link">Character Classes</a>
+            <a href="#groups" class="nav-link">Groups</a>
+            <a href="#anchors" class="nav-link">Anchors</a>
+            <a href="#flags" class="nav-link">Flags</a>
+            <a href="#advanced" class="nav-link">Advanced Techniques</a>
+            <a href="#practice" class="nav-link">Practice Exercises</a>
+          </nav>
+        </div>
+
+        <div class="tutorial-content">
+          <article id="basics" class="tutorial-chapter active">
+            <h3>Basic Syntax</h3>
+            <p>
+              Regular expressions are powerful text matching tools used to find, replace, or validate specific patterns in strings.
+            </p>
+
+            <h4>What are Regular Expressions?</h4>
+            <p>
+              Regular expressions are patterns composed of ordinary characters and special characters, used to describe matching rules for strings.
+            </p>
+
+            <div class="example-box">
+              <h5>Simple Examples:</h5>
+              <div class="code-block">
+                <code>hello</code> - matches the string "hello"
+              </div>
+              <div class="code-block"><code>\d</code> - matches any digit</div>
+              <div class="code-block">
+                <code>[a-z]</code> - matches any lowercase letter
+              </div>
+            </div>
+
+            <h4>Basic Components</h4>
+            <ul>
+              <li><strong>Ordinary Characters</strong>: directly match the character itself</li>
+              <li><strong>Metacharacters</strong>: characters with special meanings</li>
+              <li><strong>Quantifiers</strong>: specify the number of matches</li>
+              <li><strong>Character Classes</strong>: match any one character from a group</li>
+            </ul>
+          </article>
+
+          <article id="metacharacters" class="tutorial-chapter">
+            <h3>Metacharacters</h3>
+            <p>Metacharacters are special characters that have specific meanings in regular expressions.</p>
+
+            <div class="example-box">
+              <h5>Common Metacharacters:</h5>
+              <div class="code-block"><code>.</code> - matches any character except newline</div>
+              <div class="code-block"><code>^</code> - matches the start of a string</div>
+              <div class="code-block"><code>$</code> - matches the end of a string</div>
+              <div class="code-block"><code>*</code> - matches 0 or more of the preceding element</div>
+              <div class="code-block"><code>+</code> - matches 1 or more of the preceding element</div>
+              <div class="code-block"><code>?</code> - matches 0 or 1 of the preceding element</div>
+            </div>
+          </article>
+
+          <article id="quantifiers" class="tutorial-chapter">
+            <h3>Quantifiers</h3>
+            <p>Quantifiers specify how many times a character or group should be matched.</p>
+
+            <div class="example-box">
+              <h5>Common Quantifiers:</h5>
+              <div class="code-block"><code>{n}</code> - matches exactly n times</div>
+              <div class="code-block"><code>{n,}</code> - matches n or more times</div>
+              <div class="code-block"><code>{n,m}</code> - matches between n and m times</div>
+            </div>
+          </article>
+
+          <article id="character-classes" class="tutorial-chapter">
+            <h3>Character Classes</h3>
+            <p>Character classes allow you to match any one character from a set of characters.</p>
+
+            <div class="example-box">
+              <h5>Common Character Classes:</h5>
+              <div class="code-block"><code>[abc]</code> - matches a, b, or c</div>
+              <div class="code-block"><code>[a-z]</code> - matches any lowercase letter</div>
+              <div class="code-block"><code>[0-9]</code> - matches any digit</div>
+              <div class="code-block"><code>[^abc]</code> - matches any character except a, b, or c</div>
+            </div>
+          </article>
+
+          <article id="groups" class="tutorial-chapter">
+            <h3>Groups</h3>
+            <p>Groups allow you to apply quantifiers to multiple characters and capture matched text.</p>
+
+            <div class="example-box">
+              <h5>Group Examples:</h5>
+              <div class="code-block"><code>(abc)</code> - matches "abc" as a group</div>
+              <div class="code-block"><code>(abc)+</code> - matches one or more "abc" groups</div>
+              <div class="code-block"><code>(a|b)</code> - matches either "a" or "b"</div>
+            </div>
+          </article>
+
+          <article id="anchors" class="tutorial-chapter">
+            <h3>Anchors</h3>
+            <p>Anchors specify the position in the string where a match should occur.</p>
+
+            <div class="example-box">
+              <h5>Common Anchors:</h5>
+              <div class="code-block"><code>^</code> - start of string</div>
+              <div class="code-block"><code>$</code> - end of string</div>
+              <div class="code-block"><code>\b</code> - word boundary</div>
+              <div class="code-block"><code>\B</code> - non-word boundary</div>
+            </div>
+          </article>
+
+          <article id="flags" class="tutorial-chapter">
+            <h3>Flags</h3>
+            <p>Flags modify how the regular expression is interpreted.</p>
+
+            <div class="example-box">
+              <h5>Common Flags:</h5>
+              <div class="code-block"><code>g</code> - global match (find all matches)</div>
+              <div class="code-block"><code>i</code> - case insensitive</div>
+              <div class="code-block"><code>m</code> - multiline mode</div>
+              <div class="code-block"><code>s</code> - dot matches newline</div>
+            </div>
+          </article>
+
+          <article id="advanced" class="tutorial-chapter">
+            <h3>Advanced Techniques</h3>
+            <p>Advanced regular expression techniques for complex pattern matching.</p>
+
+            <div class="example-box">
+              <h5>Advanced Patterns:</h5>
+              <div class="code-block"><code>(?=pattern)</code> - positive lookahead</div>
+              <div class="code-block"><code>(?!pattern)</code> - negative lookahead</div>
+              <div class="code-block"><code>(?<=pattern)</code> - positive lookbehind</div>
+              <div class="code-block"><code>(?<!pattern)</code> - negative lookbehind</div>
+            </div>
+          </article>
+
+          <article id="practice" class="tutorial-chapter">
+            <h3>Practice Exercises</h3>
+            <p>Test your knowledge with these practical exercises.</p>
+
+            <div class="practice-exercises">
+              <div class="exercise">
+                <h4>Exercise 1: Email Validation</h4>
+                <p>Create a regex to validate email addresses.</p>
+                <div class="code-block">
+                  <code>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$</code>
+                </div>
+              </div>
+
+              <div class="exercise">
+                <h4>Exercise 2: Phone Number</h4>
+                <p>Create a regex to match phone numbers.</p>
+                <div class="code-block">
+                  <code>^1[3-9]\d{9}$</code>
+                </div>
+              </div>
+
+              <div class="exercise">
+                <h4>Exercise 3: Date Format</h4>
+                <p>Create a regex to match YYYY-MM-DD date format.</p>
+                <div class="code-block">
+                  <code>^\d{4}-\d{2}-\d{2}$</code>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Ad slot -->
+      <div class="ad-slot"></div>
+
+      <!-- Affiliate section -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Regex Tutorial. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+  </body>
+</html>
+

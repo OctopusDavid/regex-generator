@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Probador de Expresiones Regulares - Herramienta de Pruebas Online
+    </title>
+    <meta
+      name="description"
+      content="Herramienta profesional de pruebas de expresiones regulares online, soporta coincidencias en tiempo real, procesamiento de texto multilínea, coincidencias globales y otras funciones para ayudar a verificar rápidamente los efectos de regex."
+    />
+    <meta
+      name="keywords"
+      content="probador regex,probador expresiones regulares,herramienta pruebas online,coincidencia regex"
+    />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="canonical" href="https://yourdomain.com/regex-tester/es/" />
+
+    <!-- hreflang links -->
+    <link rel="alternate" hreflang="zh-CN" href="../../regex-tester/" />
+    <link rel="alternate" hreflang="en" href="../../regex-tester/en/" />
+    <link rel="alternate" hreflang="es" href="../../regex-tester/es/" />
+    <link rel="alternate" hreflang="fr" href="../../regex-tester/fr/" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Probador de Expresiones Regulares",
+        "url": "https://yourdomain.com/regex-tester/es/",
+        "description": "Herramienta profesional de pruebas de expresiones regulares online con soporte de coincidencias en tiempo real"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../../es/">
+            <img
+              src="../../assets/logo.png"
+              alt="Probador de Expresiones Regulares"
+              class="logo"
+            />
+            <h1>Probador de Expresiones Regulares</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../../es/">Inicio</a>
+          <a href="../../regex-creator/es/">Generador</a>
+          <a href="index.html" class="active">Probador</a>
+          <a href="../../regex-examples/es/">Ejemplos</a>
+          <a href="../../regex-tutorial/es/">Tutorial</a>
+        </div>
+        <div class="nav-lang">
+          <a href="../index.html">中文</a>
+          <a href="../en/index.html">EN</a>
+          <a href="index.html" class="active">ES</a>
+          <a href="../fr/index.html">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>Probador de Expresiones Regulares</h2>
+        <p>
+          Pruebas en tiempo real de efectos de coincidencia de expresiones
+          regulares, soporta texto multilínea y varios modos de coincidencia
+        </p>
+      </section>
+
+      <section class="tester-section">
+        <div class="tester-container">
+          <div class="tester-panel">
+            <div class="input-group">
+              <label for="regex-input">Expresión Regular</label>
+              <textarea
+                id="regex-input"
+                placeholder="Ingrese expresión regular, ej.: \d{3}-\d{3}-\d{4}"
+              ></textarea>
+            </div>
+
+            <div class="options-group">
+              <h4>Opciones de Coincidencia</h4>
+              <div class="option-row">
+                <label>
+                  <input type="checkbox" id="global-match" checked />
+                  Coincidencia Global (g)
+                </label>
+                <label>
+                  <input type="checkbox" id="case-insensitive" />
+                  Sin Distinción de Mayúsculas (i)
+                </label>
+                <label>
+                  <input type="checkbox" id="multiline" />
+                  Modo Multilínea (m)
+                </label>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="test-input">Texto de Prueba</label>
+              <textarea
+                id="test-input"
+                placeholder="Ingrese texto para probar..."
+              >
+Por favor pruebe el siguiente contenido:
+Email: test@example.com
+Teléfono: 13812345678
+Cédula: 110101199001011234</textarea
+              >
+            </div>
+
+            <button id="test-regex" class="btn btn-primary">
+              Iniciar Prueba
+            </button>
+          </div>
+
+          <div class="result-panel">
+            <h3>Resultados de Coincidencia</h3>
+            <div id="match-info">
+              <div class="info-item">
+                <span class="label">Cantidad de Coincidencias:</span>
+                <span id="match-count">0</span>
+              </div>
+              <div class="info-item">
+                <span class="label">Tiempo de Ejecución:</span>
+                <span id="execution-time">0ms</span>
+              </div>
+            </div>
+
+            <div id="match-results">
+              <div class="no-results">Sin resultados de coincidencia</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="examples-section">
+        <h3>Ejemplos Comunes de Expresiones Regulares</h3>
+        <div class="examples-grid">
+          <div class="example-card">
+            <h4>Dirección de Email</h4>
+            <code>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$</code>
+            <button class="btn btn-sm" onclick="loadExample(this)">
+              Usar Esta Regex
+            </button>
+          </div>
+          <div class="example-card">
+            <h4>Número de Teléfono</h4>
+            <code>^1[3-9]\d{9}$</code>
+            <button class="btn btn-sm" onclick="loadExample(this)">
+              Usar Esta Regex
+            </button>
+          </div>
+          <div class="example-card">
+            <h4>Cédula de Identidad</h4>
+            <code>^\d{17}[\dXx]$</code>
+            <button class="btn btn-sm" onclick="loadExample(this)">
+              Usar Esta Regex
+            </button>
+          </div>
+          <div class="example-card">
+            <h4>Dirección IP</h4>
+            <code
+              >^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$</code
+            >
+            <button class="btn btn-sm" onclick="loadExample(this)">
+              Usar Esta Regex
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slot de publicidad -->
+      <div class="ad-slot"></div>
+
+      <!-- Sección de afiliados -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>
+          &copy; 2025 Probador de Expresiones Regulares. Todos los derechos
+          reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/regex-tester.js"></script>
+  </body>
+</html>

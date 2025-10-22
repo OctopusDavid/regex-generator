@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Regex Tester - Test Regular Expressions Online | Real-time Matching
+    </title>
+    <meta
+      name="description"
+      content="Free online regex tester — real-time matching with flags (g, i, m), multi-line text, match count and execution time. Quickly verify and debug regular expressions."
+    />
+    <meta
+      name="keywords"
+      content="regex tester,regular expression tester,online testing tool,regex matching"
+    />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="canonical" href="https://yourdomain.com/regex-tester/en/" />
+
+    <!-- hreflang links -->
+    <link rel="alternate" hreflang="zh-CN" href="../../regex-tester/" />
+    <link rel="alternate" hreflang="en" href="../../regex-tester/en/" />
+    <link rel="alternate" hreflang="es" href="../../regex-tester/es/" />
+    <link rel="alternate" hreflang="fr" href="../../regex-tester/fr/" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Regex Tester",
+        "url": "https://yourdomain.com/regex-tester/en/",
+        "description": "Professional online regular expression testing tool with real-time matching support"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../../en/">
+            <img src="../../assets/logo.png" alt="Regex Tester" class="logo" />
+            <h1>Regex Tester</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../../en/">Home</a>
+          <a href="../../regex-creator/en/">Generator</a>
+          <a href="index.html" class="active">Tester</a>
+          <a href="../../regex-examples/en/">Examples</a>
+          <a href="../../regex-tutorial/en/">Tutorial</a>
+        </div>
+        <div class="nav-lang">
+          <a href="../index.html">中文</a>
+          <a href="index.html" class="active">EN</a>
+          <a href="../es/index.html">ES</a>
+          <a href="../fr/index.html">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>Regex Tester</h2>
+        <p>
+          Real-time testing of regular expression matching effects, supports
+          multi-line text and various matching modes
+        </p>
+      </section>
+
+      <section class="tester-section">
+        <div class="tester-container">
+          <div class="tester-panel">
+            <div class="input-group">
+              <label for="regex-input">Regular Expression</label>
+              <textarea
+                id="regex-input"
+                placeholder="Enter regular expression, e.g.: \d{3}-\d{3}-\d{4}"
+              ></textarea>
+            </div>
+
+            <div class="options-group">
+              <h4>Matching Options</h4>
+              <div class="option-row">
+                <label>
+                  <input type="checkbox" id="global-match" checked />
+                  Global Match (g)
+                </label>
+                <label>
+                  <input type="checkbox" id="case-insensitive" />
+                  Case Insensitive (i)
+                </label>
+                <label>
+                  <input type="checkbox" id="multiline" />
+                  Multiline Mode (m)
+                </label>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="test-input">Test Text</label>
+              <textarea id="test-input" placeholder="Enter text to test...">
+Please test the following content:
+Email: test@example.com
+Phone: 13812345678
+ID Card: 110101199001011234</textarea
+              >
+            </div>
+
+            <button id="test-regex" class="btn btn-primary">
+              Start Testing
+            </button>
+          </div>
+
+          <div class="result-panel">
+            <h3>Match Results</h3>
+            <div id="match-info">
+              <div class="info-item">
+                <span class="label">Match Count:</span>
+                <span id="match-count">0</span>
+              </div>
+              <div class="info-item">
+                <span class="label">Execution Time:</span>
+                <span id="execution-time">0ms</span>
+              </div>
+            </div>
+
+            <div id="match-results">
+              <div class="no-results">No match results</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="examples-section">
+        <h3>Common Regular Expression Examples</h3>
+        <div class="examples-grid">
+          <div class="example-card">
+            <h4>Email Address</h4>
+            <code>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$</code>
+            <button class="btn btn-sm" onclick="loadExample(this)">
+              Use This Regex
+            </button>
+          </div>
+          <div class="example-card">
+            <h4>Phone Number</h4>
+            <code>^1[3-9]\d{9}$</code>
+            <button class="btn btn-sm" onclick="loadExample(this)">
+              Use This Regex
+            </button>
+          </div>
+          <div class="example-card">
+            <h4>ID Card</h4>
+            <code>^\d{17}[\dXx]$</code>
+            <button class="btn btn-sm" onclick="loadExample(this)">
+              Use This Regex
+            </button>
+          </div>
+          <div class="example-card">
+            <h4>IP Address</h4>
+            <code
+              >^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$</code
+            >
+            <button class="btn btn-sm" onclick="loadExample(this)">
+              Use This Regex
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad slot -->
+      <div class="ad-slot"></div>
+
+      <!-- Affiliate section -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Regex Tester. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/regex-tester.js"></script>
+  </body>
+</html>

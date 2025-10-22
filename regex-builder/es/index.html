@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Regex Builder - Herramienta Visual de Constructor de Expresiones Regulares
+      Online
+    </title>
+    <meta
+      name="description"
+      content="Herramienta visual de constructor de regex - Construye expresiones regulares paso a paso con nuestra interfaz intuitiva. Constructor de regex drag-and-drop con vista previa en tiempo real."
+    />
+    <meta
+      name="keywords"
+      content="regex builder,regex generator,constructor visual de regex,constructor de expresiones regulares,constructor de regex online"
+    />
+
+    <!-- hreflang links -->
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://yourdomain.com/regex-builder/"
+    />
+    <link
+      rel="alternate"
+      hreflang="zh-CN"
+      href="https://yourdomain.com/regex-builder/zh/"
+    />
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://yourdomain.com/regex-builder/de/"
+    />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://yourdomain.com/regex-builder/es/"
+    />
+    <link
+      rel="alternate"
+      hreflang="fr"
+      href="https://yourdomain.com/regex-builder/fr/"
+    />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="canonical" href="https://yourdomain.com/regex-builder/es/" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Regex Builder - Herramienta Visual de Constructor de Expresiones Regulares Online",
+        "url": "https://yourdomain.com/regex-builder/es/",
+        "description": "Herramienta visual de constructor de regex para construir expresiones regulares paso a paso"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../../es/">
+            <img src="../../assets/logo.png" alt="Regex Builder" class="logo" />
+            <h1>Regex Builder</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../../es/">Inicio</a>
+          <a href="../regex-creator/es/">Creator</a>
+          <a href="index.html" class="active">Builder</a>
+          <a href="../regex-checker/es/">Checker</a>
+          <a href="../regex-online/es/">Online</a>
+          <a href="../regex-tester/es/">Tester</a>
+        </div>
+        <div class="nav-lang">
+          <a href="../index.html">EN</a>
+          <a href="../zh/">中文</a>
+          <a href="../de/">DE</a>
+          <a href="index.html" class="active">ES</a>
+          <a href="../fr/">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>Regex Builder - Constructor Visual de Expresiones Regulares</h2>
+        <p>
+          Construye expresiones regulares paso a paso con nuestra interfaz
+          visual intuitiva. Arrastra y suelta componentes para crear patrones
+          regex complejos con vista previa en tiempo real.
+        </p>
+      </section>
+
+      <section class="builder-section">
+        <div class="builder-container">
+          <div class="builder-sidebar">
+            <h3>Componentes Regex</h3>
+            <div class="component-palette">
+              <div class="component-group">
+                <h4>Patrones Básicos</h4>
+                <button class="component-btn" data-component="word">
+                  Palabra
+                </button>
+                <button class="component-btn" data-component="digit">
+                  Dígito
+                </button>
+                <button class="component-btn" data-component="space">
+                  Espacio
+                </button>
+                <button class="component-btn" data-component="any">
+                  Cualquier Carácter
+                </button>
+              </div>
+              <div class="component-group">
+                <h4>Cuantificadores</h4>
+                <button class="component-btn" data-component="zero-or-more">
+                  * (0+)
+                </button>
+                <button class="component-btn" data-component="one-or-more">
+                  + (1+)
+                </button>
+                <button class="component-btn" data-component="zero-or-one">
+                  ? (0-1)
+                </button>
+                <button class="component-btn" data-component="exact">
+                  Exacto
+                </button>
+              </div>
+              <div class="component-group">
+                <h4>Grupos</h4>
+                <button class="component-btn" data-component="group">
+                  Grupo ()
+                </button>
+                <button class="component-btn" data-component="non-capture">
+                  No captura (?:)
+                </button>
+                <button class="component-btn" data-component="lookahead">
+                  Lookahead
+                </button>
+              </div>
+            </div>
+
+            <div class="preset-patterns">
+              <h3>Patrones Rápidos</h3>
+              <button class="preset-btn" data-preset="email">
+                Patrón Email
+              </button>
+              <button class="preset-btn" data-preset="phone">
+                Patrón Teléfono
+              </button>
+              <button class="preset-btn" data-preset="url">Patrón URL</button>
+              <button class="preset-btn" data-preset="date">
+                Patrón Fecha
+              </button>
+            </div>
+          </div>
+
+          <div class="builder-main">
+            <div class="builder-canvas">
+              <h3>Constructor Visual</h3>
+              <div id="regex-canvas" class="canvas-area">
+                <div class="canvas-placeholder">
+                  Arrastra componentes aquí para construir tu patrón regex
+                </div>
+              </div>
+              <div class="builder-controls">
+                <button id="clear-canvas" class="btn btn-secondary">
+                  Limpiar
+                </button>
+                <button id="undo-action" class="btn btn-secondary">
+                  Deshacer
+                </button>
+                <button id="redo-action" class="btn btn-secondary">
+                  Rehacer
+                </button>
+              </div>
+            </div>
+
+            <div class="result-panel">
+              <h3>Regex Generado</h3>
+              <div class="regex-output">
+                <textarea
+                  id="regex-output"
+                  readonly
+                  placeholder="Tu expresión regular construida aparecerá aquí"
+                ></textarea>
+                <button id="copy-regex" class="btn btn-primary">
+                  Copiar Regex
+                </button>
+              </div>
+
+              <div class="test-section">
+                <h4>Prueba Tu Patrón</h4>
+                <textarea
+                  id="test-text"
+                  placeholder="Ingresa texto para probar tu patrón regex..."
+                ></textarea>
+                <div id="match-results"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features-section">
+        <h3>Características Avanzadas del Regex Builder</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>🎨 Interfaz Visual</h4>
+            <p>
+              Construye patrones regex complejos usando nuestra interfaz
+              intuitiva de arrastrar y soltar.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h4>⚡ Vista Previa en Tiempo Real</h4>
+            <p>
+              Ve tu patrón regex actualizarse en tiempo real mientras lo
+              construyes.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h4>🧩 Biblioteca de Componentes</h4>
+            <p>
+              Extensa biblioteca de componentes regex y patrones predefinidos.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h4>🔧 Características Avanzadas</h4>
+            <p>
+              Soporte para lookahead, lookbehind y otras características
+              avanzadas de regex.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad slot -->
+      <div class="ad-slot"></div>
+
+      <!-- Affiliate section -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Regex Builder. Todos los derechos reservados.</p>
+        <div class="footer-links">
+          <a href="../../es/">Inicio</a>
+          <a href="../regex-creator/es/">Regex Creator</a>
+          <a href="../regex-checker/es/">Regex Checker</a>
+          <a href="../regex-tester/es/">Regex Tester</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/regex-builder.js"></script>
+  </body>
+</html>

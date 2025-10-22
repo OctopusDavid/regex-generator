@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正则表达式模板库 - 常用正则表达式模板</title>
+    <meta
+      name="description"
+      content="丰富的正则表达式模板库，包含邮箱、手机号、身份证、URL、日期等常用正则表达式模板，支持一键复制。"
+    />
+    <meta
+      name="keywords"
+      content="正则表达式例子,正则表达式模板,正则表达式库,常用正则表达式,正则表达式集合"
+    />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+
+    <!-- hreflang links -->
+    <link rel="alternate" hreflang="zh-CN" href="../../regex-examples/zh/" />
+    <link rel="alternate" hreflang="en" href="../../regex-examples/en/" />
+    <link rel="alternate" hreflang="es" href="../../regex-examples/es/" />
+    <link rel="alternate" hreflang="fr" href="../../regex-examples/fr/" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "正则表达式模板库",
+        "url": "https://yourdomain.com/regex-examples/zh/",
+        "description": "丰富的正则表达式模板库，包含常用正则表达式模板"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../../zh/">
+            <img
+              src="../../assets/logo.png"
+              alt="正则表达式模板库"
+              class="logo"
+            />
+            <h1>正则表达式模板库</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../../zh/">首页</a>
+          <a href="../../regex-creator/zh/">生成器</a>
+          <a href="../../regex-tester/zh/">测试器</a>
+          <a href="index.html" class="active">模板库</a>
+          <a href="../../regex-tutorial/zh/">教程</a>
+        </div>
+        <div class="nav-lang">
+          <a href="index.html" class="active">中文</a>
+          <a href="../en/index.html">EN</a>
+          <a href="../es/index.html">ES</a>
+          <a href="../fr/index.html">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>正则表达式模板库</h2>
+        <p>丰富的正则表达式模板集合，支持一键复制</p>
+      </section>
+
+      <section class="examples-section">
+        <div class="search-bar">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="搜索正则表达式模板..."
+          />
+          <button id="search-btn" class="btn btn-primary">搜索</button>
+        </div>
+
+        <div class="category-tabs">
+          <button class="tab-btn active" data-category="all">全部</button>
+          <button class="tab-btn" data-category="contact">联系方式</button>
+          <button class="tab-btn" data-category="identity">身份信息</button>
+          <button class="tab-btn" data-category="network">网络地址</button>
+          <button class="tab-btn" data-category="format">格式验证</button>
+          <button class="tab-btn" data-category="text">文本处理</button>
+        </div>
+
+        <div class="examples-grid" id="examples-container">
+          <!-- 联系方式 -->
+          <div class="example-card" data-category="contact">
+            <div class="card-header">
+              <h3>邮箱地址</h3>
+              <span class="category-tag">联系方式</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">复制</button>
+              </div>
+              <div class="description">
+                <p>匹配标准邮箱格式，支持国际域名</p>
+              </div>
+              <div class="test-examples">
+                <strong>测试示例：</strong>
+                <span class="valid">✓ test@example.com</span>
+                <span class="invalid">✗ test@.com</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="contact">
+            <div class="card-header">
+              <h3>手机号码</h3>
+              <span class="category-tag">联系方式</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^1[3-9]\d{9}$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">复制</button>
+              </div>
+              <div class="description">
+                <p>匹配中国大陆手机号码</p>
+              </div>
+              <div class="test-examples">
+                <strong>测试示例：</strong>
+                <span class="valid">✓ 13812345678</span>
+                <span class="invalid">✗ 12812345678</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 身份信息 -->
+          <div class="example-card" data-category="identity">
+            <div class="card-header">
+              <h3>身份证号码</h3>
+              <span class="category-tag">身份信息</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code
+                  >^[1-9]\d{5}(18|19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$</code
+                >
+                <button class="copy-btn" onclick="copyRegex(this)">复制</button>
+              </div>
+              <div class="description">
+                <p>匹配18位身份证号码，支持X结尾</p>
+              </div>
+              <div class="test-examples">
+                <strong>测试示例：</strong>
+                <span class="valid">✓ 110101199001011234</span>
+                <span class="invalid">✗ 11010119900101123</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 网络地址 -->
+          <div class="example-card" data-category="network">
+            <div class="card-header">
+              <h3>IP地址</h3>
+              <span class="category-tag">网络地址</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code
+                  >^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$</code
+                >
+                <button class="copy-btn" onclick="copyRegex(this)">复制</button>
+              </div>
+              <div class="description">
+                <p>匹配IPv4地址格式</p>
+              </div>
+              <div class="test-examples">
+                <strong>测试示例：</strong>
+                <span class="valid">✓ 192.168.1.1</span>
+                <span class="invalid">✗ 256.1.1.1</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="network">
+            <div class="card-header">
+              <h3>URL链接</h3>
+              <span class="category-tag">网络地址</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code
+                  >^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$</code
+                >
+                <button class="copy-btn" onclick="copyRegex(this)">复制</button>
+              </div>
+              <div class="description">
+                <p>匹配HTTP/HTTPS链接</p>
+              </div>
+              <div class="test-examples">
+                <strong>测试示例：</strong>
+                <span class="valid">✓ https://www.example.com</span>
+                <span class="invalid">✗ www.example</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 格式验证 -->
+          <div class="example-card" data-category="format">
+            <div class="card-header">
+              <h3>日期格式</h3>
+              <span class="category-tag">格式验证</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^\d{4}-\d{2}-\d{2}$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">复制</button>
+              </div>
+              <div class="description">
+                <p>匹配YYYY-MM-DD格式日期</p>
+              </div>
+              <div class="test-examples">
+                <strong>测试示例：</strong>
+                <span class="valid">✓ 2025-10-21</span>
+                <span class="invalid">✗ 2025-10-1</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="format">
+            <div class="card-header">
+              <h3>时间格式</h3>
+              <span class="category-tag">格式验证</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">复制</button>
+              </div>
+              <div class="description">
+                <p>匹配HH:MM:SS格式时间</p>
+              </div>
+              <div class="test-examples">
+                <strong>测试示例：</strong>
+                <span class="valid">✓ 23:59:59</span>
+                <span class="invalid">✗ 24:00:00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="format">
+            <div class="card-header">
+              <h3>金额格式</h3>
+              <span class="category-tag">格式验证</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^\d+(\.\d{1,2})?$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">复制</button>
+              </div>
+              <div class="description">
+                <p>匹配数字金额，支持最多两位小数</p>
+              </div>
+              <div class="test-examples">
+                <strong>测试示例：</strong>
+                <span class="valid">✓ 123.45</span>
+                <span class="invalid">✗ 123.456</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 文本处理 -->
+          <div class="example-card" data-category="text">
+            <div class="card-header">
+              <h3>中文字符</h3>
+              <span class="category-tag">文本处理</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>[\u4e00-\u9fa5]</code>
+                <button class="copy-btn" onclick="copyRegex(this)">复制</button>
+              </div>
+              <div class="description">
+                <p>匹配中文字符</p>
+              </div>
+              <div class="test-examples">
+                <strong>测试示例：</strong>
+                <span class="valid">✓ 你好世界</span>
+                <span class="invalid">✗ hello world</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="text">
+            <div class="card-header">
+              <h3>数字和字母</h3>
+              <span class="category-tag">文本处理</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^[a-zA-Z0-9]+$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">复制</button>
+              </div>
+              <div class="description">
+                <p>匹配只包含数字和字母的字符串</p>
+              </div>
+              <div class="test-examples">
+                <strong>测试示例：</strong>
+                <span class="valid">✓ abc123</span>
+                <span class="invalid">✗ abc-123</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="text">
+            <div class="card-header">
+              <h3>正整数</h3>
+              <span class="category-tag">文本处理</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^[1-9]\d*$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">复制</button>
+              </div>
+              <div class="description">
+                <p>匹配正整数（不包括0）</p>
+              </div>
+              <div class="test-examples">
+                <strong>测试示例：</strong>
+                <span class="valid">✓ 123</span>
+                <span class="invalid">✗ 0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 广告位 -->
+      <div class="ad-slot"></div>
+
+      <!-- 联盟推广区 -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 正则表达式模板库. 保留所有权利.</p>
+        <div class="footer-links">
+          <a href="../../zh/">首页</a>
+          <a href="../../regex-creator/zh/">正则表达式生成器</a>
+          <a href="../../regex-tester/zh/">正则表达式测试器</a>
+          <a href="../../regex-tutorial/zh/">正则表达式教程</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/utils.js"></script>
+  </body>
+</html>

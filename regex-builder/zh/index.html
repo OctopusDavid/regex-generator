@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正则表达式构建器 - 可视化正则构建工具 | 拖拽式界面</title>
+    <meta
+      name="description"
+      content="可视化正则表达式构建器 - 使用直观的界面逐步构建正则表达式。拖拽式正则构建器，实时预览和测试。"
+    />
+    <meta
+      name="keywords"
+      content="正则表达式构建器,regex builder,可视化正则构建器,正则表达式工具,在线正则构建器,正则表达式生成器"
+    />
+
+    <!-- hreflang links -->
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://yourdomain.com/regex-builder/"
+    />
+    <link
+      rel="alternate"
+      hreflang="zh-CN"
+      href="https://yourdomain.com/regex-builder/zh/"
+    />
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://yourdomain.com/regex-builder/de/"
+    />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://yourdomain.com/regex-builder/es/"
+    />
+    <link
+      rel="alternate"
+      hreflang="fr"
+      href="https://yourdomain.com/regex-builder/fr/"
+    />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="canonical" href="https://yourdomain.com/regex-builder/zh/" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "正则表达式构建器 - 可视化正则表达式构建工具",
+        "url": "https://yourdomain.com/regex-builder/zh/",
+        "description": "可视化正则表达式构建器，用于逐步构建正则表达式"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../../zh/">
+            <img
+              src="../../assets/logo.png"
+              alt="正则表达式构建器"
+              class="logo"
+            />
+            <h1>正则表达式构建器</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../../zh/">首页</a>
+          <a href="../../regex-creator/zh/">创建器</a>
+          <a href="index.html" class="active">构建器</a>
+          <a href="../../regex-checker/zh/">检查器</a>
+          <a href="../../regex-online/zh/">在线工具</a>
+          <a href="../../regex-tester/zh/">测试器</a>
+        </div>
+        <div class="nav-lang">
+          <a href="../index.html">EN</a>
+          <a href="index.html" class="active">中文</a>
+          <a href="../de/">DE</a>
+          <a href="../es/">ES</a>
+          <a href="../fr/">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>正则表达式构建器 - 可视化正则表达式构建工具</h2>
+        <p>
+          使用我们直观的可视化界面逐步构建正则表达式。拖拽组件创建复杂的正则模式，实时预览效果。
+        </p>
+      </section>
+
+      <section class="builder-section">
+        <div class="builder-container">
+          <div class="builder-sidebar">
+            <h3>正则组件</h3>
+            <div class="component-palette">
+              <div class="component-group">
+                <h4>基础模式</h4>
+                <button class="component-btn" data-component="word">
+                  单词
+                </button>
+                <button class="component-btn" data-component="digit">
+                  数字
+                </button>
+                <button class="component-btn" data-component="space">
+                  空格
+                </button>
+                <button class="component-btn" data-component="any">
+                  任意字符
+                </button>
+              </div>
+              <div class="component-group">
+                <h4>量词</h4>
+                <button class="component-btn" data-component="zero-or-more">
+                  * (0+)
+                </button>
+                <button class="component-btn" data-component="one-or-more">
+                  + (1+)
+                </button>
+                <button class="component-btn" data-component="zero-or-one">
+                  ? (0-1)
+                </button>
+                <button class="component-btn" data-component="exact">
+                  精确
+                </button>
+              </div>
+              <div class="component-group">
+                <h4>分组</h4>
+                <button class="component-btn" data-component="group">
+                  分组 ()
+                </button>
+                <button class="component-btn" data-component="non-capture">
+                  非捕获 (?:)
+                </button>
+                <button class="component-btn" data-component="lookahead">
+                  前瞻
+                </button>
+              </div>
+            </div>
+
+            <div class="preset-patterns">
+              <h3>快速模式</h3>
+              <button class="preset-btn" data-preset="email">邮箱模式</button>
+              <button class="preset-btn" data-preset="phone">手机模式</button>
+              <button class="preset-btn" data-preset="url">网址模式</button>
+              <button class="preset-btn" data-preset="date">日期模式</button>
+            </div>
+          </div>
+
+          <div class="builder-main">
+            <div class="builder-canvas">
+              <h3>可视化构建器</h3>
+              <div id="regex-canvas" class="canvas-area">
+                <div class="canvas-placeholder">
+                  拖拽组件到这里构建您的正则表达式模式
+                </div>
+              </div>
+              <div class="builder-controls">
+                <button id="clear-canvas" class="btn btn-primary">清空</button>
+                <button id="undo-action" class="btn btn-primary">撤销</button>
+                <button id="redo-action" class="btn btn-primary">重做</button>
+              </div>
+            </div>
+
+            <div class="result-panel">
+              <h3>生成的正则表达式</h3>
+              <div class="regex-output">
+                <textarea
+                  id="regex-output"
+                  readonly
+                  placeholder="您构建的正则表达式将显示在这里"
+                ></textarea>
+                <button id="copy-regex" class="btn btn-primary">
+                  复制正则
+                </button>
+              </div>
+
+              <div class="test-section">
+                <h4>测试您的模式</h4>
+                <textarea
+                  id="test-text"
+                  placeholder="输入要测试的文本..."
+                ></textarea>
+                <div id="match-results"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features-section">
+        <h3>高级正则构建器功能</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>🎨 可视化界面</h4>
+            <p>使用我们直观的拖拽界面构建复杂的正则表达式模式。</p>
+          </div>
+          <div class="feature-card">
+            <h4>⚡ 实时预览</h4>
+            <p>在构建过程中实时查看正则表达式模式的更新。</p>
+          </div>
+          <div class="feature-card">
+            <h4>🧩 组件库</h4>
+            <p>丰富的正则组件库和预设模式。</p>
+          </div>
+          <div class="feature-card">
+            <h4>🔧 高级功能</h4>
+            <p>支持前瞻、后顾和其他高级正则功能。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 广告位 -->
+      <div class="ad-slot"></div>
+
+      <!-- 联盟推广区 -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 正则表达式构建器. 保留所有权利.</p>
+        <div class="footer-links">
+          <a href="../../zh/">首页</a>
+          <a href="../../regex-creator/zh/">正则创建器</a>
+          <a href="../../regex-checker/zh/">正则检查器</a>
+          <a href="../../regex-tester/zh/">正则测试器</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/regex-builder.js"></script>
+  </body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正则表达式教程 - 从入门到精通的正则表达式学习指南</title>
+    <meta
+      name="description"
+      content="完整的正则表达式学习教程，从基础语法到高级应用，包含大量实例和练习，帮助您快速掌握正则表达式技能。"
+    />
+    <meta
+      name="keywords"
+      content="正则表达式教程,regex tutorial,正则表达式学习,正则表达式语法,正则表达式实例"
+    />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+
+    <!-- hreflang links -->
+    <link rel="alternate" hreflang="zh-CN" href="../../regex-tutorial/zh/" />
+    <link rel="alternate" hreflang="en" href="../../regex-tutorial/en/" />
+    <link rel="alternate" hreflang="es" href="../../regex-tutorial/es/" />
+    <link rel="alternate" hreflang="fr" href="../../regex-tutorial/fr/" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "正则表达式教程",
+        "url": "https://yourdomain.com/regex-tutorial/zh/",
+        "description": "完整的正则表达式学习教程，从基础语法到高级应用"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../../zh/">
+            <img src="../../assets/logo.png" alt="正则表达式教程" class="logo" />
+            <h1>正则表达式教程</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../../zh/">首页</a>
+          <a href="../../regex-creator/zh/">生成器</a>
+          <a href="../../regex-tester/zh/">测试器</a>
+          <a href="../../regex-examples/zh/">模板库</a>
+          <a href="index.html" class="active">教程</a>
+        </div>
+        <div class="nav-lang">
+          <a href="index.html" class="active">中文</a>
+          <a href="../en/index.html">EN</a>
+          <a href="../es/index.html">ES</a>
+          <a href="../fr/index.html">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>正则表达式教程</h2>
+        <p>从入门到精通的正则表达式学习指南</p>
+      </section>
+
+      <section class="tutorial-section">
+        <div class="tutorial-sidebar">
+          <h3>教程目录</h3>
+          <nav class="tutorial-nav">
+            <a href="#basics" class="nav-link active">基础语法</a>
+            <a href="#metacharacters" class="nav-link">元字符</a>
+            <a href="#quantifiers" class="nav-link">量词</a>
+            <a href="#character-classes" class="nav-link">字符类</a>
+            <a href="#groups" class="nav-link">分组</a>
+            <a href="#anchors" class="nav-link">锚点</a>
+            <a href="#flags" class="nav-link">标志</a>
+            <a href="#advanced" class="nav-link">高级技巧</a>
+            <a href="#practice" class="nav-link">练习题目</a>
+          </nav>
+        </div>
+
+        <div class="tutorial-content">
+          <article id="basics" class="tutorial-chapter active">
+            <h3>基础语法</h3>
+            <p>
+              正则表达式是强大的文本匹配工具，用于查找、替换或验证字符串中的特定模式。
+            </p>
+
+            <h4>什么是正则表达式？</h4>
+            <p>
+              正则表达式是由普通字符和特殊字符组成的模式，用于描述字符串的匹配规则。
+            </p>
+
+            <div class="example-box">
+              <h5>简单示例：</h5>
+              <div class="code-block">
+                <code>hello</code> - 匹配字符串 "hello"
+              </div>
+              <div class="code-block"><code>\d</code> - 匹配任意数字</div>
+              <div class="code-block">
+                <code>[a-z]</code> - 匹配任意小写字母
+              </div>
+            </div>
+
+            <h4>基本组成部分</h4>
+            <ul>
+              <li><strong>普通字符</strong>：直接匹配字符本身</li>
+              <li><strong>元字符</strong>：具有特殊含义的字符</li>
+              <li><strong>量词</strong>：指定匹配次数</li>
+              <li><strong>字符类</strong>：匹配一组字符中的任意一个</li>
+            </ul>
+          </article>
+
+          <article id="metacharacters" class="tutorial-chapter">
+            <h3>元字符</h3>
+            <p>元字符是正则表达式中具有特殊含义的字符。</p>
+
+            <div class="example-box">
+              <h5>常用元字符：</h5>
+              <div class="code-block"><code>.</code> - 匹配除换行符外的任意字符</div>
+              <div class="code-block"><code>^</code> - 匹配字符串开始</div>
+              <div class="code-block"><code>$</code> - 匹配字符串结束</div>
+              <div class="code-block"><code>*</code> - 匹配前面的元素0次或多次</div>
+              <div class="code-block"><code>+</code> - 匹配前面的元素1次或多次</div>
+              <div class="code-block"><code>?</code> - 匹配前面的元素0次或1次</div>
+            </div>
+          </article>
+
+          <article id="quantifiers" class="tutorial-chapter">
+            <h3>量词</h3>
+            <p>量词指定字符或分组应该匹配的次数。</p>
+
+            <div class="example-box">
+              <h5>常用量词：</h5>
+              <div class="code-block"><code>{n}</code> - 精确匹配n次</div>
+              <div class="code-block"><code>{n,}</code> - 匹配n次或更多</div>
+              <div class="code-block"><code>{n,m}</code> - 匹配n到m次之间</div>
+            </div>
+          </article>
+
+          <article id="character-classes" class="tutorial-chapter">
+            <h3>字符类</h3>
+            <p>字符类允许您匹配一组字符中的任意一个字符。</p>
+
+            <div class="example-box">
+              <h5>常用字符类：</h5>
+              <div class="code-block"><code>[abc]</code> - 匹配 a、b 或 c</div>
+              <div class="code-block"><code>[a-z]</code> - 匹配任意小写字母</div>
+              <div class="code-block"><code>[0-9]</code> - 匹配任意数字</div>
+              <div class="code-block"><code>[^abc]</code> - 匹配除 a、b、c 外的任意字符</div>
+            </div>
+          </article>
+
+          <article id="groups" class="tutorial-chapter">
+            <h3>分组</h3>
+            <p>分组允许您对多个字符应用量词并捕获匹配的文本。</p>
+
+            <div class="example-box">
+              <h5>分组示例：</h5>
+              <div class="code-block"><code>(abc)</code> - 将 "abc" 作为一个组匹配</div>
+              <div class="code-block"><code>(abc)+</code> - 匹配一个或多个 "abc" 组</div>
+              <div class="code-block"><code>(a|b)</code> - 匹配 "a" 或 "b"</div>
+            </div>
+          </article>
+
+          <article id="anchors" class="tutorial-chapter">
+            <h3>锚点</h3>
+            <p>锚点指定匹配应该在字符串中的哪个位置发生。</p>
+
+            <div class="example-box">
+              <h5>常用锚点：</h5>
+              <div class="code-block"><code>^</code> - 字符串开始</div>
+              <div class="code-block"><code>$</code> - 字符串结束</div>
+              <div class="code-block"><code>\b</code> - 单词边界</div>
+              <div class="code-block"><code>\B</code> - 非单词边界</div>
+            </div>
+          </article>
+
+          <article id="flags" class="tutorial-chapter">
+            <h3>标志</h3>
+            <p>标志修改正则表达式的解释方式。</p>
+
+            <div class="example-box">
+              <h5>常用标志：</h5>
+              <div class="code-block"><code>g</code> - 全局匹配（查找所有匹配）</div>
+              <div class="code-block"><code>i</code> - 不区分大小写</div>
+              <div class="code-block"><code>m</code> - 多行模式</div>
+              <div class="code-block"><code>s</code> - 点号匹配换行符</div>
+            </div>
+          </article>
+
+          <article id="advanced" class="tutorial-chapter">
+            <h3>高级技巧</h3>
+            <p>用于复杂模式匹配的高级正则表达式技巧。</p>
+
+            <div class="example-box">
+              <h5>高级模式：</h5>
+              <div class="code-block"><code>(?=pattern)</code> - 正向先行断言</div>
+              <div class="code-block"><code>(?!pattern)</code> - 负向先行断言</div>
+              <div class="code-block"><code>(?<=pattern)</code> - 正向后行断言</div>
+              <div class="code-block"><code>(?<!pattern)</code> - 负向后行断言</div>
+            </div>
+          </article>
+
+          <article id="practice" class="tutorial-chapter">
+            <h3>练习题目</h3>
+            <p>通过这些实际练习来测试您的知识。</p>
+
+            <div class="practice-exercises">
+              <div class="exercise">
+                <h4>练习1：邮箱验证</h4>
+                <p>创建一个正则表达式来验证邮箱地址。</p>
+                <div class="code-block">
+                  <code>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$</code>
+                </div>
+              </div>
+
+              <div class="exercise">
+                <h4>练习2：手机号码</h4>
+                <p>创建一个正则表达式来匹配手机号码。</p>
+                <div class="code-block">
+                  <code>^1[3-9]\d{9}$</code>
+                </div>
+              </div>
+
+              <div class="exercise">
+                <h4>练习3：日期格式</h4>
+                <p>创建一个正则表达式来匹配 YYYY-MM-DD 日期格式。</p>
+                <div class="code-block">
+                  <code>^\d{4}-\d{2}-\d{2}$</code>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 广告位 -->
+      <div class="ad-slot"></div>
+
+      <!-- 联盟推广区 -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 正则表达式教程. 保留所有权利.</p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+  </body>
+</html>

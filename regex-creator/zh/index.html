@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正则表达式创建器 - 在线生成正则表达式 | 免费正则制作工具</title>
+    <meta
+      name="description"
+      content="免费在线正则表达式创建器 - 快速生成邮箱、手机号、URL等正则表达式模式。可视化正则创建器，实时测试，无需注册。"
+    />
+    <meta
+      name="keywords"
+      content="正则表达式创建器,regex creator,正则表达式生成器,在线正则创建器,正则表达式工具,免费正则创建器"
+    />
+
+    <!-- hreflang links -->
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://yourdomain.com/regex-creator/"
+    />
+    <link
+      rel="alternate"
+      hreflang="zh-CN"
+      href="https://yourdomain.com/regex-creator/zh/"
+    />
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://yourdomain.com/regex-creator/de/"
+    />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://yourdomain.com/regex-creator/es/"
+    />
+    <link
+      rel="alternate"
+      hreflang="fr"
+      href="https://yourdomain.com/regex-creator/fr/"
+    />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "正则表达式创建器 - 免费在线正则表达式生成工具",
+        "url": "https://yourdomain.com/regex-creator/zh/",
+        "description": "免费在线正则表达式创建器，用于生成正则表达式模式",
+        "mainEntity": {
+          "@type": "SoftwareApplication",
+          "name": "正则表达式创建器",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CNY"
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../../zh/">
+            <img
+              src="../../assets/logo.png"
+              alt="正则表达式创建器"
+              class="logo"
+            />
+            <h1>正则表达式创建器</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../../zh/">首页</a>
+          <a href="index.html" class="active">创建器</a>
+          <a href="../../regex-builder/zh/">构建器</a>
+          <a href="../../regex-checker/zh/">检查器</a>
+          <a href="../../regex-online/zh/">在线工具</a>
+          <a href="../../regex-tester/zh/">测试器</a>
+        </div>
+        <div class="nav-lang">
+          <a href="../index.html">EN</a>
+          <a href="index.html" class="active">中文</a>
+          <a href="../de/">DE</a>
+          <a href="../es/">ES</a>
+          <a href="../fr/">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>正则表达式创建器 - 免费在线正则表达式生成工具</h2>
+        <p>
+          使用我们的智能正则表达式创建器，快速生成邮箱、手机号、URL等正则表达式模式。可视化配置，实时测试。
+        </p>
+      </section>
+
+      <section class="creator-section">
+        <div class="creator-container">
+          <div class="creator-sidebar">
+            <h3>模式类型</h3>
+            <div class="type-selector">
+              <button class="type-btn active" data-type="email">
+                邮箱地址
+              </button>
+              <button class="type-btn" data-type="phone">手机号码</button>
+              <button class="type-btn" data-type="url">网址链接</button>
+              <button class="type-btn" data-type="ip">IP地址</button>
+              <button class="type-btn" data-type="date">日期格式</button>
+              <button class="type-btn" data-type="number">数字格式</button>
+              <button class="type-btn" data-type="password">密码格式</button>
+              <button class="type-btn" data-type="custom">自定义模式</button>
+            </div>
+
+            <div class="config-panel">
+              <h3>配置选项</h3>
+              <div id="config-options">
+                <!-- 动态配置选项 -->
+              </div>
+            </div>
+          </div>
+
+          <div class="creator-main">
+            <div class="result-panel">
+              <h3>生成的正则表达式</h3>
+              <div class="regex-output">
+                <textarea
+                  id="regex-output"
+                  readonly
+                  placeholder="生成的正则表达式将显示在这里"
+                ></textarea>
+                <button id="copy-regex" class="btn btn-primary">
+                  复制正则
+                </button>
+              </div>
+
+              <div class="test-section">
+                <h4>测试您的模式</h4>
+                <textarea
+                  id="test-text"
+                  placeholder="输入要测试的文本..."
+                ></textarea>
+                <div id="match-results"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features-section">
+        <h3>为什么选择我们的正则表达式创建器？</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>🎯 智能模式识别</h4>
+            <p>我们的正则创建器智能识别常见模式，生成优化的正则表达式。</p>
+          </div>
+          <div class="feature-card">
+            <h4>⚡ 实时测试</h4>
+            <p>使用内置测试工具即时测试您创建的正则表达式模式。</p>
+          </div>
+          <div class="feature-card">
+            <h4>📚 多种格式</h4>
+            <p>支持各种编程语言和正则表达式引擎。</p>
+          </div>
+          <div class="feature-card">
+            <h4>🔧 可视化配置</h4>
+            <p>易于使用的界面，无需编程知识即可配置正则表达式模式。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 广告位 -->
+      <div class="ad-slot"></div>
+
+      <!-- 联盟推广区 -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 正则表达式创建器. 保留所有权利.</p>
+        <div class="footer-links">
+          <a href="../../zh/">首页</a>
+          <a href="../../regex-builder/zh/">正则构建器</a>
+          <a href="../../regex-checker/zh/">正则检查器</a>
+          <a href="../../regex-tester/zh/">正则测试器</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/regex-creator.js"></script>
+  </body>
+</html>

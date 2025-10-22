@@ -1,0 +1,24 @@
+# Cursor 项目规则（Regex Generator）
+
+# 🧱 基本规则
+- Cursor 应优先使用 HTML、CSS、原生 JavaScript 实现前端逻辑。
+- 禁止使用 React、Next.js、Vue 或任何前端框架。
+- 所有页面应为独立的静态 HTML 文件。
+- 所有功能模块应模块化实现（每个功能一个 JS 文件）。
+- 所有样式应统一放在 css/style.css 文件中。
+
+# 🌍 多语言规则
+- 每个语言版本是独立 HTML 文件，例如 /en/index.html。
+- 不使用动态语言切换功能（不依赖 JS 翻译）。
+- 每个 HTML 页都应包含完整的 SEO meta 标签和 hreflang 链接。
+
+# 💡 SEO 优化
+- 所有页面必须包含：title、description、keywords。
+- 页脚应包含版权信息。
+- 添加结构化数据（JSON-LD）标记：Organization、WebSite、WebPage。
+- 页面加载速度要快，避免多余的脚本和外部依赖。
+
+# 💰 商业化集成
+- 每个页面预留广告位 <div class="ad-slot"></div>
+- 预留联盟推广区 <div class="affiliate-section"></div>
+- 不在项目中嵌入真实广告代码，保持安全。

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial de Regex - Guía Completa de Aprendizaje de Expresiones Regulares</title>
+    <meta
+      name="description"
+      content="Tutorial completo de aprendizaje de expresiones regulares, desde sintaxis básica hasta aplicaciones avanzadas, incluye numerosos ejemplos y ejercicios para ayudarte a dominar rápidamente las habilidades regex."
+    />
+    <meta
+      name="keywords"
+      content="tutorial regex,tutorial expresiones regulares,aprendizaje regex,sintaxis regex,ejemplos regex"
+    />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+
+    <!-- hreflang links -->
+    <link rel="alternate" hreflang="zh-CN" href="../../regex-tutorial/" />
+    <link rel="alternate" hreflang="en" href="../../regex-tutorial/en/" />
+    <link rel="alternate" hreflang="es" href="../../regex-tutorial/es/" />
+    <link rel="alternate" hreflang="fr" href="../../regex-tutorial/fr/" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Tutorial de Regex",
+        "url": "https://yourdomain.com/regex-tutorial/es/",
+        "description": "Tutorial completo de aprendizaje de expresiones regulares desde sintaxis básica hasta aplicaciones avanzadas"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../../es/">
+            <img src="../../assets/logo.png" alt="Tutorial de Regex" class="logo" />
+            <h1>Tutorial de Regex</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../../es/">Inicio</a>
+          <a href="../../regex-creator/es/">Generador</a>
+          <a href="../../regex-tester/es/">Probador</a>
+          <a href="../../regex-examples/es/">Ejemplos</a>
+          <a href="index.html" class="active">Tutorial</a>
+        </div>
+        <div class="nav-lang">
+          <a href="../index.html">中文</a>
+          <a href="../en/index.html">EN</a>
+          <a href="index.html" class="active">ES</a>
+          <a href="../fr/index.html">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>Tutorial de Regex</h2>
+        <p>Guía completa de aprendizaje de expresiones regulares de principiante a experto</p>
+      </section>
+
+      <section class="tutorial-section">
+        <div class="tutorial-sidebar">
+          <h3>Contenido del Tutorial</h3>
+          <nav class="tutorial-nav">
+            <a href="#basics" class="nav-link active">Sintaxis Básica</a>
+            <a href="#metacharacters" class="nav-link">Metacaracteres</a>
+            <a href="#quantifiers" class="nav-link">Cuantificadores</a>
+            <a href="#character-classes" class="nav-link">Clases de Caracteres</a>
+            <a href="#groups" class="nav-link">Grupos</a>
+            <a href="#anchors" class="nav-link">Anclas</a>
+            <a href="#flags" class="nav-link">Banderas</a>
+            <a href="#advanced" class="nav-link">Técnicas Avanzadas</a>
+            <a href="#practice" class="nav-link">Ejercicios de Práctica</a>
+          </nav>
+        </div>
+
+        <div class="tutorial-content">
+          <article id="basics" class="tutorial-chapter active">
+            <h3>Sintaxis Básica</h3>
+            <p>
+              Las expresiones regulares son herramientas poderosas de coincidencia de texto utilizadas para encontrar, reemplazar o validar patrones específicos en cadenas.
+            </p>
+
+            <h4>¿Qué son las Expresiones Regulares?</h4>
+            <p>
+              Las expresiones regulares son patrones compuestos de caracteres ordinarios y caracteres especiales, utilizados para describir reglas de coincidencia para cadenas.
+            </p>
+
+            <div class="example-box">
+              <h5>Ejemplos Simples:</h5>
+              <div class="code-block">
+                <code>hello</code> - coincide con la cadena "hello"
+              </div>
+              <div class="code-block"><code>\d</code> - coincide con cualquier dígito</div>
+              <div class="code-block">
+                <code>[a-z]</code> - coincide con cualquier letra minúscula
+              </div>
+            </div>
+
+            <h4>Componentes Básicos</h4>
+            <ul>
+              <li><strong>Caracteres Ordinarios</strong>: coinciden directamente con el carácter mismo</li>
+              <li><strong>Metacaracteres</strong>: caracteres con significados especiales</li>
+              <li><strong>Cuantificadores</strong>: especifican el número de coincidencias</li>
+              <li><strong>Clases de Caracteres</strong>: coinciden con cualquier carácter de un grupo</li>
+            </ul>
+          </article>
+
+          <article id="metacharacters" class="tutorial-chapter">
+            <h3>Metacaracteres</h3>
+            <p>Los metacaracteres son caracteres especiales que tienen significados específicos en las expresiones regulares.</p>
+
+            <div class="example-box">
+              <h5>Metacaracteres Comunes:</h5>
+              <div class="code-block"><code>.</code> - coincide con cualquier carácter excepto nueva línea</div>
+              <div class="code-block"><code>^</code> - coincide con el inicio de una cadena</div>
+              <div class="code-block"><code>$</code> - coincide con el final de una cadena</div>
+              <div class="code-block"><code>*</code> - coincide con 0 o más del elemento precedente</div>
+              <div class="code-block"><code>+</code> - coincide con 1 o más del elemento precedente</div>
+              <div class="code-block"><code>?</code> - coincide con 0 o 1 del elemento precedente</div>
+            </div>
+          </article>
+
+          <article id="quantifiers" class="tutorial-chapter">
+            <h3>Cuantificadores</h3>
+            <p>Los cuantificadores especifican cuántas veces debe coincidir un carácter o grupo.</p>
+
+            <div class="example-box">
+              <h5>Cuantificadores Comunes:</h5>
+              <div class="code-block"><code>{n}</code> - coincide exactamente n veces</div>
+              <div class="code-block"><code>{n,}</code> - coincide n o más veces</div>
+              <div class="code-block"><code>{n,m}</code> - coincide entre n y m veces</div>
+            </div>
+          </article>
+
+          <article id="character-classes" class="tutorial-chapter">
+            <h3>Clases de Caracteres</h3>
+            <p>Las clases de caracteres permiten coincidir con cualquier carácter de un conjunto de caracteres.</p>
+
+            <div class="example-box">
+              <h5>Clases de Caracteres Comunes:</h5>
+              <div class="code-block"><code>[abc]</code> - coincide con a, b, o c</div>
+              <div class="code-block"><code>[a-z]</code> - coincide con cualquier letra minúscula</div>
+              <div class="code-block"><code>[0-9]</code> - coincide con cualquier dígito</div>
+              <div class="code-block"><code>[^abc]</code> - coincide con cualquier carácter excepto a, b, o c</div>
+            </div>
+          </article>
+
+          <article id="groups" class="tutorial-chapter">
+            <h3>Grupos</h3>
+            <p>Los grupos permiten aplicar cuantificadores a múltiples caracteres y capturar texto coincidente.</p>
+
+            <div class="example-box">
+              <h5>Ejemplos de Grupos:</h5>
+              <div class="code-block"><code>(abc)</code> - coincide con "abc" como grupo</div>
+              <div class="code-block"><code>(abc)+</code> - coincide con uno o más grupos "abc"</div>
+              <div class="code-block"><code>(a|b)</code> - coincide con "a" o "b"</div>
+            </div>
+          </article>
+
+          <article id="anchors" class="tutorial-chapter">
+            <h3>Anclas</h3>
+            <p>Las anclas especifican la posición en la cadena donde debe ocurrir una coincidencia.</p>
+
+            <div class="example-box">
+              <h5>Anclas Comunes:</h5>
+              <div class="code-block"><code>^</code> - inicio de cadena</div>
+              <div class="code-block"><code>$</code> - final de cadena</div>
+              <div class="code-block"><code>\b</code> - límite de palabra</div>
+              <div class="code-block"><code>\B</code> - no límite de palabra</div>
+            </div>
+          </article>
+
+          <article id="flags" class="tutorial-chapter">
+            <h3>Banderas</h3>
+            <p>Las banderas modifican cómo se interpreta la expresión regular.</p>
+
+            <div class="example-box">
+              <h5>Banderas Comunes:</h5>
+              <div class="code-block"><code>g</code> - coincidencia global (encontrar todas las coincidencias)</div>
+              <div class="code-block"><code>i</code> - insensible a mayúsculas</div>
+              <div class="code-block"><code>m</code> - modo multilínea</div>
+              <div class="code-block"><code>s</code> - punto coincide con nueva línea</div>
+            </div>
+          </article>
+
+          <article id="advanced" class="tutorial-chapter">
+            <h3>Técnicas Avanzadas</h3>
+            <p>Técnicas avanzadas de expresiones regulares para coincidencia de patrones complejos.</p>
+
+            <div class="example-box">
+              <h5>Patrones Avanzados:</h5>
+              <div class="code-block"><code>(?=pattern)</code> - lookahead positivo</div>
+              <div class="code-block"><code>(?!pattern)</code> - lookahead negativo</div>
+              <div class="code-block"><code>(?<=pattern)</code> - lookbehind positivo</div>
+              <div class="code-block"><code>(?<!pattern)</code> - lookbehind negativo</div>
+            </div>
+          </article>
+
+          <article id="practice" class="tutorial-chapter">
+            <h3>Ejercicios de Práctica</h3>
+            <p>Prueba tu conocimiento con estos ejercicios prácticos.</p>
+
+            <div class="practice-exercises">
+              <div class="exercise">
+                <h4>Ejercicio 1: Validación de Email</h4>
+                <p>Crea una regex para validar direcciones de email.</p>
+                <div class="code-block">
+                  <code>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$</code>
+                </div>
+              </div>
+
+              <div class="exercise">
+                <h4>Ejercicio 2: Número de Teléfono</h4>
+                <p>Crea una regex para coincidir con números de teléfono.</p>
+                <div class="code-block">
+                  <code>^1[3-9]\d{9}$</code>
+                </div>
+              </div>
+
+              <div class="exercise">
+                <h4>Ejercicio 3: Formato de Fecha</h4>
+                <p>Crea una regex para coincidir con formato de fecha YYYY-MM-DD.</p>
+                <div class="code-block">
+                  <code>^\d{4}-\d{2}-\d{2}$</code>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Slot de publicidad -->
+      <div class="ad-slot"></div>
+
+      <!-- Sección de afiliados -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Tutorial de Regex. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+  </body>
+</html>
+

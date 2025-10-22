@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' http://127.0.0.1:* https://yourdomain.com; font-src 'self';"
+    />
+    <title>
+      Regex Builder - Visual Regular Expression Builder | Drag & Drop Interface
+    </title>
+    <meta
+      name="description"
+      content="Visual regex builder tool - Build regular expressions step by step with our intuitive interface. Drag-and-drop regex builder with real-time preview and testing."
+    />
+    <meta
+      name="keywords"
+      content="regex builder,regex generator,visual regex builder,regular expression builder,online regex builder,regex constructor,regex maker"
+    />
+
+    <!-- hreflang links -->
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://yourdomain.com/regex-builder/"
+    />
+    <link
+      rel="alternate"
+      hreflang="zh-CN"
+      href="https://yourdomain.com/regex-builder/zh/"
+    />
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://yourdomain.com/regex-builder/de/"
+    />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://yourdomain.com/regex-builder/es/"
+    />
+    <link
+      rel="alternate"
+      hreflang="fr"
+      href="https://yourdomain.com/regex-builder/fr/"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://yourdomain.com/regex-builder/"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Regex Builder - Visual Regular Expression Builder Tool Online",
+        "url": "https://yourdomain.com/regex-builder/",
+        "description": "Visual regex builder tool for building regular expressions step by step",
+        "mainEntity": {
+          "@type": "SoftwareApplication",
+          "name": "Regex Builder",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../en/">
+            <img src="../assets/logo.png" alt="Regex Builder" class="logo" />
+            <h1>Regex Builder</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../en/">Home</a>
+          <a href="regex-creator/">Creator</a>
+          <a href="index.html" class="active">Builder</a>
+          <a href="regex-checker/">Checker</a>
+          <a href="regex-online/">Online</a>
+          <a href="regex-tester/">Tester</a>
+        </div>
+        <div class="nav-lang">
+          <a href="index.html" class="active">EN</a>
+          <a href="zh/">中文</a>
+          <a href="de/">DE</a>
+          <a href="es/">ES</a>
+          <a href="fr/">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>Regex Builder - Visual Regular Expression Builder</h2>
+        <p>
+          Build regular expressions step by step with our intuitive visual
+          interface. Drag and drop components to create complex regex patterns
+          with real-time preview.
+        </p>
+      </section>
+
+      <section class="builder-section">
+        <div class="builder-container">
+          <div class="builder-sidebar">
+            <h3>Regex Components</h3>
+            <div class="component-palette">
+              <div class="component-group">
+                <h4>Basic Patterns</h4>
+                <button class="component-btn" data-component="word">
+                  Word
+                </button>
+                <button class="component-btn" data-component="digit">
+                  Digit
+                </button>
+                <button class="component-btn" data-component="space">
+                  Space
+                </button>
+                <button class="component-btn" data-component="any">
+                  Any Char
+                </button>
+              </div>
+              <div class="component-group">
+                <h4>Quantifiers</h4>
+                <button class="component-btn" data-component="zero-or-more">
+                  * (0+)
+                </button>
+                <button class="component-btn" data-component="one-or-more">
+                  + (1+)
+                </button>
+                <button class="component-btn" data-component="zero-or-one">
+                  ? (0-1)
+                </button>
+                <button class="component-btn" data-component="exact">
+                  Exact
+                </button>
+              </div>
+              <div class="component-group">
+                <h4>Groups</h4>
+                <button class="component-btn" data-component="group">
+                  Group ()
+                </button>
+                <button class="component-btn" data-component="non-capture">
+                  Non-capture (?:)
+                </button>
+                <button class="component-btn" data-component="lookahead">
+                  Lookahead
+                </button>
+              </div>
+            </div>
+
+            <div class="preset-patterns">
+              <h3>Quick Patterns</h3>
+              <button class="preset-btn" data-preset="email">
+                Email Pattern
+              </button>
+              <button class="preset-btn" data-preset="phone">
+                Phone Pattern
+              </button>
+              <button class="preset-btn" data-preset="url">URL Pattern</button>
+              <button class="preset-btn" data-preset="date">
+                Date Pattern
+              </button>
+            </div>
+          </div>
+
+          <div class="builder-main">
+            <div class="builder-canvas">
+              <h3>Visual Builder</h3>
+              <div id="regex-canvas" class="canvas-area">
+                <div class="canvas-placeholder">
+                  Drag components here to build your regex pattern
+                </div>
+              </div>
+              <div class="builder-controls">
+                <button id="clear-canvas" class="btn btn-primary">Clear</button>
+                <button id="undo-action" class="btn btn-primary">Undo</button>
+                <button id="redo-action" class="btn btn-primary">Redo</button>
+              </div>
+            </div>
+
+            <div class="result-panel">
+              <h3>Generated Regex</h3>
+              <div class="regex-output">
+                <textarea
+                  id="regex-output"
+                  readonly
+                  placeholder="Your built regular expression will appear here"
+                ></textarea>
+                <button id="copy-regex" class="btn btn-primary">
+                  Copy Regex
+                </button>
+              </div>
+
+              <div class="test-section">
+                <h4>Test Your Pattern</h4>
+                <textarea
+                  id="test-text"
+                  placeholder="Enter text to test your regex pattern..."
+                ></textarea>
+                <div id="match-results"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features-section">
+        <h3>Advanced Regex Builder Features</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>🎨 Visual Interface</h4>
+            <p>
+              Build complex regex patterns using our intuitive drag-and-drop
+              interface.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h4>⚡ Real-time Preview</h4>
+            <p>See your regex pattern update in real-time as you build it.</p>
+          </div>
+          <div class="feature-card">
+            <h4>🧩 Component Library</h4>
+            <p>Extensive library of regex components and preset patterns.</p>
+          </div>
+          <div class="feature-card">
+            <h4>🔧 Advanced Features</h4>
+            <p>
+              Support for lookahead, lookbehind, and other advanced regex
+              features.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad slot -->
+      <div class="ad-slot"></div>
+
+      <!-- Affiliate section -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Regex Builder. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="../en/">Home</a>
+          <a href="regex-creator/">Regex Creator</a>
+          <a href="regex-checker/">Regex Checker</a>
+          <a href="regex-tester/">Regex Tester</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/regex-builder.js"></script>
+  </body>
+</html>

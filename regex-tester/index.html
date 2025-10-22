@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' http://127.0.0.1:* https://yourdomain.com; font-src 'self';"
+    />
+    <title>正则表达式测试器 - 在线正则表达式测试工具</title>
+    <meta
+      name="description"
+      content="专业的正则表达式在线测试工具，支持实时匹配测试、多行文本处理、全局匹配等功能，帮助快速验证正则表达式效果。"
+    />
+    <meta
+      name="keywords"
+      content="正则表达式测试器,regex tester,正则表达式测试,在线测试工具,正则匹配"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "正则表达式测试器",
+        "url": "https://yourdomain.com/regex-tester/",
+        "description": "专业的正则表达式在线测试工具，支持实时匹配测试"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../zh/">
+            <img src="../assets/logo.png" alt="正则表达式测试器" class="logo" />
+            <h1>正则表达式测试器</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../zh/">首页</a>
+          <a href="../regex-creator/index.html">生成器</a>
+          <a href="index.html" class="active">测试器</a>
+          <a href="../regex-examples/index.html">模板库</a>
+          <a href="../regex-tutorial/index.html">教程</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>正则表达式测试器</h2>
+        <p>实时测试正则表达式匹配效果，支持多行文本和多种匹配模式</p>
+      </section>
+
+      <section class="tester-section">
+        <div class="tester-container">
+          <div class="tester-panel">
+            <div class="input-group">
+              <label for="regex-input">正则表达式</label>
+              <textarea
+                id="regex-input"
+                placeholder="输入正则表达式，例如：\d{3}-\d{3}-\d{4}"
+              ></textarea>
+            </div>
+
+            <div class="options-group">
+              <h4>匹配选项</h4>
+              <div class="option-row">
+                <label>
+                  <input type="checkbox" id="global-match" checked />
+                  全局匹配 (g)
+                </label>
+                <label>
+                  <input type="checkbox" id="case-insensitive" />
+                  忽略大小写 (i)
+                </label>
+                <label>
+                  <input type="checkbox" id="multiline" />
+                  多行模式 (m)
+                </label>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="test-input">测试文本</label>
+              <textarea id="test-input" placeholder="输入要测试的文本...">
+请测试以下内容：
+邮箱：test@example.com
+手机：13812345678
+身份证：110101199001011234</textarea
+              >
+            </div>
+
+            <button id="test-regex" class="btn btn-primary">开始测试</button>
+          </div>
+
+          <div class="result-panel">
+            <h3>匹配结果</h3>
+            <div id="match-info">
+              <div class="info-item">
+                <span class="label">匹配数量：</span>
+                <span id="match-count">0</span>
+              </div>
+              <div class="info-item">
+                <span class="label">执行时间：</span>
+                <span id="execution-time">0ms</span>
+              </div>
+            </div>
+
+            <div id="match-results">
+              <div class="no-results">暂无匹配结果</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="examples-section">
+        <h3>常用正则表达式示例</h3>
+        <div class="examples-grid">
+          <div class="example-card">
+            <h4>邮箱地址</h4>
+            <code>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$</code>
+            <button class="btn btn-sm" onclick="loadExample(this)">
+              使用此正则
+            </button>
+          </div>
+          <div class="example-card">
+            <h4>手机号码</h4>
+            <code>^1[3-9]\d{9}$</code>
+            <button class="btn btn-sm" onclick="loadExample(this)">
+              使用此正则
+            </button>
+          </div>
+          <div class="example-card">
+            <h4>身份证号</h4>
+            <code>^\d{17}[\dXx]$</code>
+            <button class="btn btn-sm" onclick="loadExample(this)">
+              使用此正则
+            </button>
+          </div>
+          <div class="example-card">
+            <h4>IP地址</h4>
+            <code
+              >^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$</code
+            >
+            <button class="btn btn-sm" onclick="loadExample(this)">
+              使用此正则
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 广告位 -->
+      <div class="ad-slot"></div>
+
+      <!-- 联盟推广区 -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 正则表达式测试器. 保留所有权利.</p>
+      </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/regex-tester.js"></script>
+  </body>
+</html>

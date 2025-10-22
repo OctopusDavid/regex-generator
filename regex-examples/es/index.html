@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Biblioteca de Ejemplos Regex - Plantillas Comunes de Expresiones Regulares
+    </title>
+    <meta
+      name="description"
+      content="Rica biblioteca de plantillas de expresiones regulares, incluye email, teléfono, cédula, URL, fecha y otras plantillas regex comunes con soporte de copia de un clic."
+    />
+    <meta
+      name="keywords"
+      content="ejemplos regex,plantillas expresiones regulares,biblioteca regex,regex comunes,colección regex"
+    />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+
+    <!-- hreflang links -->
+    <link rel="alternate" hreflang="zh-CN" href="../../regex-examples/" />
+    <link rel="alternate" hreflang="en" href="../../regex-examples/en/" />
+    <link rel="alternate" hreflang="es" href="../../regex-examples/es/" />
+    <link rel="alternate" hreflang="fr" href="../../regex-examples/fr/" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Biblioteca de Ejemplos Regex",
+        "url": "https://yourdomain.com/regex-examples/es/",
+        "description": "Rica biblioteca de plantillas de expresiones regulares con plantillas regex comunes"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../../es/">
+            <img
+              src="../../assets/logo.png"
+              alt="Biblioteca de Ejemplos Regex"
+              class="logo"
+            />
+            <h1>Biblioteca de Ejemplos Regex</h1>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../../es/">Inicio</a>
+          <a href="../../regex-creator/es/">Generador</a>
+          <a href="../../regex-tester/es/">Probador</a>
+          <a href="index.html" class="active">Ejemplos</a>
+          <a href="../../regex-tutorial/es/">Tutorial</a>
+        </div>
+        <div class="nav-lang">
+          <a href="../index.html">中文</a>
+          <a href="../en/index.html">EN</a>
+          <a href="index.html" class="active">ES</a>
+          <a href="../fr/index.html">FR</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="page-header">
+        <h2>Biblioteca de Ejemplos Regex</h2>
+        <p>
+          Rica colección de plantillas de expresiones regulares con soporte de
+          copia de un clic
+        </p>
+      </section>
+
+      <section class="examples-section">
+        <div class="search-bar">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Buscar plantillas regex..."
+          />
+          <button id="search-btn" class="btn btn-primary">Buscar</button>
+        </div>
+
+        <div class="category-tabs">
+          <button class="tab-btn active" data-category="all">Todos</button>
+          <button class="tab-btn" data-category="contact">Contacto</button>
+          <button class="tab-btn" data-category="identity">Identidad</button>
+          <button class="tab-btn" data-category="network">Red</button>
+          <button class="tab-btn" data-category="format">Formato</button>
+          <button class="tab-btn" data-category="text">Texto</button>
+        </div>
+
+        <div class="examples-grid" id="examples-container">
+          <!-- Contacto -->
+          <div class="example-card" data-category="contact">
+            <div class="card-header">
+              <h3>Dirección de Email</h3>
+              <span class="category-tag">Contacto</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">
+                  Copiar
+                </button>
+              </div>
+              <div class="description">
+                <p>
+                  Coincide con formato de email estándar, soporta dominios
+                  internacionales
+                </p>
+              </div>
+              <div class="test-examples">
+                <strong>Ejemplos de Prueba:</strong>
+                <span class="valid">✓ test@example.com</span>
+                <span class="invalid">✗ test@.com</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="contact">
+            <div class="card-header">
+              <h3>Número de Teléfono</h3>
+              <span class="category-tag">Contacto</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^1[3-9]\d{9}$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">
+                  Copiar
+                </button>
+              </div>
+              <div class="description">
+                <p>Coincide con números de teléfono de China continental</p>
+              </div>
+              <div class="test-examples">
+                <strong>Ejemplos de Prueba:</strong>
+                <span class="valid">✓ 13812345678</span>
+                <span class="invalid">✗ 12812345678</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Identidad -->
+          <div class="example-card" data-category="identity">
+            <div class="card-header">
+              <h3>Cédula de Identidad</h3>
+              <span class="category-tag">Identidad</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^\d{17}[\dXx]$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">
+                  Copiar
+                </button>
+              </div>
+              <div class="description">
+                <p>
+                  Coincide con números de cédula de 18 dígitos, soporta
+                  terminación X
+                </p>
+              </div>
+              <div class="test-examples">
+                <strong>Ejemplos de Prueba:</strong>
+                <span class="valid">✓ 110101199001011234</span>
+                <span class="invalid">✗ 11010119900101123</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Red -->
+          <div class="example-card" data-category="network">
+            <div class="card-header">
+              <h3>Dirección IP</h3>
+              <span class="category-tag">Red</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code
+                  >^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$</code
+                >
+                <button class="copy-btn" onclick="copyRegex(this)">
+                  Copiar
+                </button>
+              </div>
+              <div class="description">
+                <p>Coincide con formato de dirección IPv4</p>
+              </div>
+              <div class="test-examples">
+                <strong>Ejemplos de Prueba:</strong>
+                <span class="valid">✓ 192.168.1.1</span>
+                <span class="invalid">✗ 256.1.1.1</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="network">
+            <div class="card-header">
+              <h3>Enlace URL</h3>
+              <span class="category-tag">Red</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code
+                  >^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$</code
+                >
+                <button class="copy-btn" onclick="copyRegex(this)">
+                  Copiar
+                </button>
+              </div>
+              <div class="description">
+                <p>Coincide con enlaces HTTP/HTTPS</p>
+              </div>
+              <div class="test-examples">
+                <strong>Ejemplos de Prueba:</strong>
+                <span class="valid">✓ https://www.example.com</span>
+                <span class="invalid">✗ www.example</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formato -->
+          <div class="example-card" data-category="format">
+            <div class="card-header">
+              <h3>Formato de Fecha</h3>
+              <span class="category-tag">Formato</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^\d{4}-\d{2}-\d{2}$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">
+                  Copiar
+                </button>
+              </div>
+              <div class="description">
+                <p>Coincide con fecha en formato YYYY-MM-DD</p>
+              </div>
+              <div class="test-examples">
+                <strong>Ejemplos de Prueba:</strong>
+                <span class="valid">✓ 2025-10-21</span>
+                <span class="invalid">✗ 2025-10-1</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="format">
+            <div class="card-header">
+              <h3>Formato de Tiempo</h3>
+              <span class="category-tag">Formato</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">
+                  Copiar
+                </button>
+              </div>
+              <div class="description">
+                <p>Coincide con tiempo en formato HH:MM:SS</p>
+              </div>
+              <div class="test-examples">
+                <strong>Ejemplos de Prueba:</strong>
+                <span class="valid">✓ 23:59:59</span>
+                <span class="invalid">✗ 24:00:00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Texto -->
+          <div class="example-card" data-category="text">
+            <div class="card-header">
+              <h3>Caracteres Chinos</h3>
+              <span class="category-tag">Texto</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>[\u4e00-\u9fa5]</code>
+                <button class="copy-btn" onclick="copyRegex(this)">
+                  Copiar
+                </button>
+              </div>
+              <div class="description">
+                <p>Coincide con caracteres chinos</p>
+              </div>
+              <div class="test-examples">
+                <strong>Ejemplos de Prueba:</strong>
+                <span class="valid">✓ 你好世界</span>
+                <span class="invalid">✗ hello world</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="text">
+            <div class="card-header">
+              <h3>Números y Letras</h3>
+              <span class="category-tag">Texto</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^[a-zA-Z0-9]+$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">
+                  Copiar
+                </button>
+              </div>
+              <div class="description">
+                <p>Coincide con cadenas que contienen solo números y letras</p>
+              </div>
+              <div class="test-examples">
+                <strong>Ejemplos de Prueba:</strong>
+                <span class="valid">✓ abc123</span>
+                <span class="invalid">✗ abc-123</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slot de publicidad -->
+      <div class="ad-slot"></div>
+
+      <!-- Sección de afiliados -->
+      <div class="affiliate-section"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>
+          &copy; 2025 Biblioteca de Ejemplos Regex. Todos los derechos
+          reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/utils.js"></script>
+  </body>
+</html>
