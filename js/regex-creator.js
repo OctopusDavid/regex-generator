@@ -2,6 +2,447 @@
  * 正则表达式生成器 - 生成器功能模块
  */
 
+// 检测当前页面语言
+const getCurrentLanguage = () => {
+  return document.documentElement.lang || "zh-CN";
+};
+
+// 多语言配置
+const translations = {
+  "zh-CN": {
+    emailConfig: {
+      title: "邮箱地址配置",
+      allowInternational: "允许国际域名",
+      allowInternationalDesc: "支持国际化域名格式",
+      allowSubdomains: "允许子域名",
+      allowSubdomainsDesc: "支持多级子域名",
+    },
+    phoneConfig: {
+      title: "手机号码配置",
+      country: "国家/地区",
+      china: "中国大陆",
+      usa: "美国",
+      uk: "英国",
+      allowSpaces: "允许空格分隔",
+      allowSpacesDesc: "如：138 1234 5678",
+    },
+    idcardConfig: {
+      title: "身份证号配置",
+      allowX: "允许X结尾",
+      allowXDesc: "支持身份证号最后一位为X",
+      strictLength: "严格长度检查",
+      strictLengthDesc: "必须为18位",
+    },
+    urlConfig: {
+      title: "URL链接配置",
+      protocol: "协议要求",
+      bothProtocol: "HTTP和HTTPS",
+      httpsOnly: "仅HTTPS",
+      httpOnly: "仅HTTP",
+      allowSubdomains: "允许子域名",
+      allowSubdomainsDesc: "支持www等子域名",
+    },
+    ipConfig: {
+      title: "IP地址配置",
+      version: "IP版本",
+      ipv4: "IPv4",
+      ipv6: "IPv6",
+      bothIp: "IPv4和IPv6",
+    },
+    dateConfig: {
+      title: "日期格式配置",
+      format: "日期格式",
+      yyyyMmDd: "YYYY-MM-DD",
+      mmDdYyyy: "MM/DD/YYYY",
+      ddMmYyyy: "DD/MM/YYYY",
+      separator: "分隔符",
+      hyphen: "连字符 (-)",
+      slash: "斜杠 (/)",
+      dot: "点号 (.)",
+    },
+    numberConfig: {
+      title: "数字格式配置",
+      allowDecimals: "允许小数",
+      allowDecimalsDesc: "支持小数点",
+      allowNegative: "允许负数",
+      allowNegativeDesc: "支持负号",
+      minLength: "最小长度",
+      minLengthDesc: "数字最小位数",
+      maxLength: "最大长度",
+      maxLengthDesc: "数字最大位数",
+    },
+    customConfig: {
+      title: "自定义配置",
+      pattern: "自定义模式",
+      patternDesc:
+        "输入自定义正则表达式模式，支持所有正则表达式语法。例如：^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      patternPlaceholder:
+        "请输入您的正则表达式模式...\n\n示例：\n• 邮箱: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\n• 手机号: ^1[3-9]\\d{9}$\n• 身份证: ^\\d{17}[\\dXx]$",
+    },
+    common: {
+      config: "配置",
+      inputCustomPattern: "输入自定义模式...",
+      regexSyntaxCorrect: "✓ 正则表达式语法正确",
+      regexSyntaxError: "✗ 正则表达式错误:",
+      regexCopied: "正则表达式已复制到剪贴板",
+      copyFailed: "复制失败，请手动复制",
+      foundMatches: "找到 {count} 个匹配：",
+      noMatches: "未找到匹配项",
+      regexError: "正则表达式错误:",
+      position: "位置:",
+    },
+  },
+  en: {
+    emailConfig: {
+      title: "Email Address Configuration",
+      allowInternational: "Allow International Domains",
+      allowInternationalDesc: "Support international domain formats",
+      allowSubdomains: "Allow Subdomains",
+      allowSubdomainsDesc: "Support multi-level subdomains",
+    },
+    phoneConfig: {
+      title: "Phone Number Configuration",
+      country: "Country/Region",
+      china: "China Mainland",
+      usa: "United States",
+      uk: "United Kingdom",
+      allowSpaces: "Allow Space Separation",
+      allowSpacesDesc: "e.g.: 138 1234 5678",
+    },
+    idcardConfig: {
+      title: "ID Card Configuration",
+      allowX: "Allow X Ending",
+      allowXDesc: "Support X as the last digit of ID card",
+      strictLength: "Strict Length Check",
+      strictLengthDesc: "Must be 18 digits",
+    },
+    urlConfig: {
+      title: "URL Link Configuration",
+      protocol: "Protocol Requirement",
+      bothProtocol: "HTTP and HTTPS",
+      httpsOnly: "HTTPS Only",
+      httpOnly: "HTTP Only",
+      allowSubdomains: "Allow Subdomains",
+      allowSubdomainsDesc: "Support www and other subdomains",
+    },
+    ipConfig: {
+      title: "IP Address Configuration",
+      version: "IP Version",
+      ipv4: "IPv4",
+      ipv6: "IPv6",
+      bothIp: "IPv4 and IPv6",
+    },
+    dateConfig: {
+      title: "Date Format Configuration",
+      format: "Date Format",
+      yyyyMmDd: "YYYY-MM-DD",
+      mmDdYyyy: "MM/DD/YYYY",
+      ddMmYyyy: "DD/MM/YYYY",
+      separator: "Separator",
+      hyphen: "Hyphen (-)",
+      slash: "Slash (/)",
+      dot: "Dot (.)",
+    },
+    numberConfig: {
+      title: "Number Format Configuration",
+      allowDecimals: "Allow Decimals",
+      allowDecimalsDesc: "Support decimal points",
+      allowNegative: "Allow Negative Numbers",
+      allowNegativeDesc: "Support negative sign",
+      minLength: "Minimum Length",
+      minLengthDesc: "Minimum number of digits",
+      maxLength: "Maximum Length",
+      maxLengthDesc: "Maximum number of digits",
+    },
+    customConfig: {
+      title: "Custom Configuration",
+      pattern: "Custom Pattern",
+      patternDesc:
+        "Enter custom regular expression pattern, supports all regex syntax. Example: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      patternPlaceholder:
+        "Please enter your regular expression pattern...\n\nExamples:\n• Email: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\n• Phone: ^1[3-9]\\d{9}$\n• ID Card: ^\\d{17}[\\dXx]$",
+    },
+    common: {
+      config: "Configuration",
+      inputCustomPattern: "Enter custom pattern...",
+      regexSyntaxCorrect: "✓ Regular expression syntax is correct",
+      regexSyntaxError: "✗ Regular expression error:",
+      regexCopied: "Regular expression copied to clipboard",
+      copyFailed: "Copy failed, please copy manually",
+      foundMatches: "Found {count} match(es):",
+      noMatches: "No matches found",
+      regexError: "Regular expression error:",
+      position: "Position:",
+    },
+  },
+  de: {
+    emailConfig: {
+      title: "E-Mail-Adresse Konfiguration",
+      allowInternational: "Internationale Domains erlauben",
+      allowInternationalDesc: "Unterstützung für internationale Domain-Formate",
+      allowSubdomains: "Subdomains erlauben",
+      allowSubdomainsDesc: "Unterstützung für mehrstufige Subdomains",
+    },
+    phoneConfig: {
+      title: "Telefonnummer Konfiguration",
+      country: "Land/Region",
+      china: "China Festland",
+      usa: "Vereinigte Staaten",
+      uk: "Vereinigtes Königreich",
+      allowSpaces: "Leerzeichen-Trennung erlauben",
+      allowSpacesDesc: "z.B.: 138 1234 5678",
+    },
+    idcardConfig: {
+      title: "Personalausweis Konfiguration",
+      allowX: "X-Ende erlauben",
+      allowXDesc: "Unterstützung für X als letzte Ziffer des Personalausweises",
+      strictLength: "Strenge Längenprüfung",
+      strictLengthDesc: "Muss 18 Ziffern haben",
+    },
+    urlConfig: {
+      title: "URL-Link Konfiguration",
+      protocol: "Protokoll-Anforderung",
+      bothProtocol: "HTTP und HTTPS",
+      httpsOnly: "Nur HTTPS",
+      httpOnly: "Nur HTTP",
+      allowSubdomains: "Subdomains erlauben",
+      allowSubdomainsDesc: "Unterstützung für www und andere Subdomains",
+    },
+    ipConfig: {
+      title: "IP-Adresse Konfiguration",
+      version: "IP-Version",
+      ipv4: "IPv4",
+      ipv6: "IPv6",
+      bothIp: "IPv4 und IPv6",
+    },
+    dateConfig: {
+      title: "Datumsformat Konfiguration",
+      format: "Datumsformat",
+      yyyyMmDd: "YYYY-MM-DD",
+      mmDdYyyy: "MM/DD/YYYY",
+      ddMmYyyy: "DD/MM/YYYY",
+      separator: "Trennzeichen",
+      hyphen: "Bindestrich (-)",
+      slash: "Schrägstrich (/)",
+      dot: "Punkt (.)",
+    },
+    numberConfig: {
+      title: "Zahlenformat Konfiguration",
+      allowDecimals: "Dezimalzahlen erlauben",
+      allowDecimalsDesc: "Unterstützung für Dezimalpunkte",
+      allowNegative: "Negative Zahlen erlauben",
+      allowNegativeDesc: "Unterstützung für Minuszeichen",
+      minLength: "Mindestlänge",
+      minLengthDesc: "Mindestanzahl der Ziffern",
+      maxLength: "Maximale Länge",
+      maxLengthDesc: "Maximale Anzahl der Ziffern",
+    },
+    customConfig: {
+      title: "Benutzerdefinierte Konfiguration",
+      pattern: "Benutzerdefiniertes Muster",
+      patternDesc:
+        "Geben Sie ein benutzerdefiniertes reguläres Ausdrucksmuster ein, unterstützt alle Regex-Syntax. Beispiel: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      patternPlaceholder:
+        "Bitte geben Sie Ihr reguläres Ausdrucksmuster ein...\n\nBeispiele:\n• E-Mail: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\n• Telefon: ^1[3-9]\\d{9}$\n• Personalausweis: ^\\d{17}[\\dXx]$",
+    },
+    common: {
+      config: "Konfiguration",
+      inputCustomPattern: "Benutzerdefiniertes Muster eingeben...",
+      regexSyntaxCorrect: "✓ Regulärer Ausdruck Syntax ist korrekt",
+      regexSyntaxError: "✗ Regulärer Ausdruck Fehler:",
+      regexCopied: "Regulärer Ausdruck in die Zwischenablage kopiert",
+      copyFailed: "Kopieren fehlgeschlagen, bitte manuell kopieren",
+      foundMatches: "{count} Übereinstimmung(en) gefunden:",
+      noMatches: "Keine Übereinstimmungen gefunden",
+      regexError: "Regulärer Ausdruck Fehler:",
+      position: "Position:",
+    },
+  },
+  es: {
+    emailConfig: {
+      title: "Configuración de Dirección de Email",
+      allowInternational: "Permitir Dominios Internacionales",
+      allowInternationalDesc:
+        "Soporte para formatos de dominio internacionales",
+      allowSubdomains: "Permitir Subdominios",
+      allowSubdomainsDesc: "Soporte para subdominios multinivel",
+    },
+    phoneConfig: {
+      title: "Configuración de Número de Teléfono",
+      country: "País/Región",
+      china: "China Continental",
+      usa: "Estados Unidos",
+      uk: "Reino Unido",
+      allowSpaces: "Permitir Separación por Espacios",
+      allowSpacesDesc: "ej.: 138 1234 5678",
+    },
+    idcardConfig: {
+      title: "Configuración de Cédula de Identidad",
+      allowX: "Permitir Terminación en X",
+      allowXDesc: "Soporte para X como último dígito de la cédula",
+      strictLength: "Verificación Estricta de Longitud",
+      strictLengthDesc: "Debe tener 18 dígitos",
+    },
+    urlConfig: {
+      title: "Configuración de Enlace URL",
+      protocol: "Requisito de Protocolo",
+      bothProtocol: "HTTP y HTTPS",
+      httpsOnly: "Solo HTTPS",
+      httpOnly: "Solo HTTP",
+      allowSubdomains: "Permitir Subdominios",
+      allowSubdomainsDesc: "Soporte para www y otros subdominios",
+    },
+    ipConfig: {
+      title: "Configuración de Dirección IP",
+      version: "Versión IP",
+      ipv4: "IPv4",
+      ipv6: "IPv6",
+      bothIp: "IPv4 e IPv6",
+    },
+    dateConfig: {
+      title: "Configuración de Formato de Fecha",
+      format: "Formato de Fecha",
+      yyyyMmDd: "YYYY-MM-DD",
+      mmDdYyyy: "MM/DD/YYYY",
+      ddMmYyyy: "DD/MM/YYYY",
+      separator: "Separador",
+      hyphen: "Guión (-)",
+      slash: "Barra (/)",
+      dot: "Punto (.)",
+    },
+    numberConfig: {
+      title: "Configuración de Formato de Número",
+      allowDecimals: "Permitir Decimales",
+      allowDecimalsDesc: "Soporte para puntos decimales",
+      allowNegative: "Permitir Números Negativos",
+      allowNegativeDesc: "Soporte para signo negativo",
+      minLength: "Longitud Mínima",
+      minLengthDesc: "Número mínimo de dígitos",
+      maxLength: "Longitud Máxima",
+      maxLengthDesc: "Número máximo de dígitos",
+    },
+    customConfig: {
+      title: "Configuración Personalizada",
+      pattern: "Patrón Personalizado",
+      patternDesc:
+        "Ingrese un patrón de expresión regular personalizado, soporta toda la sintaxis regex. Ejemplo: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      patternPlaceholder:
+        "Por favor ingrese su patrón de expresión regular...\n\nEjemplos:\n• Email: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\n• Teléfono: ^1[3-9]\\d{9}$\n• Cédula: ^\\d{17}[\\dXx]$",
+    },
+    common: {
+      config: "Configuración",
+      inputCustomPattern: "Ingresar patrón personalizado...",
+      regexSyntaxCorrect: "✓ La sintaxis de expresión regular es correcta",
+      regexSyntaxError: "✗ Error de expresión regular:",
+      regexCopied: "Expresión regular copiada al portapapeles",
+      copyFailed: "Error al copiar, por favor copie manualmente",
+      foundMatches: "Se encontraron {count} coincidencia(s):",
+      noMatches: "No se encontraron coincidencias",
+      regexError: "Error de expresión regular:",
+      position: "Posición:",
+    },
+  },
+  fr: {
+    emailConfig: {
+      title: "Configuration d'Adresse Email",
+      allowInternational: "Autoriser les Domaines Internationaux",
+      allowInternationalDesc: "Support des formats de domaine internationaux",
+      allowSubdomains: "Autoriser les Sous-domaines",
+      allowSubdomainsDesc: "Support des sous-domaines multi-niveaux",
+    },
+    phoneConfig: {
+      title: "Configuration de Numéro de Téléphone",
+      country: "Pays/Région",
+      china: "Chine Continentale",
+      usa: "États-Unis",
+      uk: "Royaume-Uni",
+      allowSpaces: "Autoriser la Séparation par Espaces",
+      allowSpacesDesc: "ex.: 138 1234 5678",
+    },
+    idcardConfig: {
+      title: "Configuration de Carte d'Identité",
+      allowX: "Autoriser la Fin en X",
+      allowXDesc: "Support de X comme dernier chiffre de la carte d'identité",
+      strictLength: "Vérification Stricte de Longueur",
+      strictLengthDesc: "Doit avoir 18 chiffres",
+    },
+    urlConfig: {
+      title: "Configuration de Lien URL",
+      protocol: "Exigence de Protocole",
+      bothProtocol: "HTTP et HTTPS",
+      httpsOnly: "HTTPS Seulement",
+      httpOnly: "HTTP Seulement",
+      allowSubdomains: "Autoriser les Sous-domaines",
+      allowSubdomainsDesc: "Support de www et autres sous-domaines",
+    },
+    ipConfig: {
+      title: "Configuration d'Adresse IP",
+      version: "Version IP",
+      ipv4: "IPv4",
+      ipv6: "IPv6",
+      bothIp: "IPv4 et IPv6",
+    },
+    dateConfig: {
+      title: "Configuration de Format de Date",
+      format: "Format de Date",
+      yyyyMmDd: "YYYY-MM-DD",
+      mmDdYyyy: "MM/DD/YYYY",
+      ddMmYyyy: "DD/MM/YYYY",
+      separator: "Séparateur",
+      hyphen: "Trait d'union (-)",
+      slash: "Barre oblique (/)",
+      dot: "Point (.)",
+    },
+    numberConfig: {
+      title: "Configuration de Format de Nombre",
+      allowDecimals: "Autoriser les Décimales",
+      allowDecimalsDesc: "Support des points décimaux",
+      allowNegative: "Autoriser les Nombres Négatifs",
+      allowNegativeDesc: "Support du signe négatif",
+      minLength: "Longueur Minimale",
+      minLengthDesc: "Nombre minimum de chiffres",
+      maxLength: "Longueur Maximale",
+      maxLengthDesc: "Nombre maximum de chiffres",
+    },
+    customConfig: {
+      title: "Configuration Personnalisée",
+      pattern: "Modèle Personnalisé",
+      patternDesc:
+        "Entrez un modèle d'expression régulière personnalisé, prend en charge toute la syntaxe regex. Exemple: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      patternPlaceholder:
+        "Veuillez entrer votre modèle d'expression régulière...\n\nExemples:\n• Email: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\n• Téléphone: ^1[3-9]\\d{9}$\n• Carte d'identité: ^\\d{17}[\\dXx]$",
+    },
+    common: {
+      config: "Configuration",
+      inputCustomPattern: "Entrer un modèle personnalisé...",
+      regexSyntaxCorrect: "✓ La syntaxe d'expression régulière est correcte",
+      regexSyntaxError: "✗ Erreur d'expression régulière:",
+      regexCopied: "Expression régulière copiée dans le presse-papiers",
+      copyFailed: "Échec de la copie, veuillez copier manuellement",
+      foundMatches: "{count} correspondance(s) trouvée(s):",
+      noMatches: "Aucune correspondance trouvée",
+      regexError: "Erreur d'expression régulière:",
+      position: "Position:",
+    },
+  },
+};
+
+// 获取本地化文本的函数
+const getLocalizedText = (category, key, params = {}) => {
+  const lang = getCurrentLanguage();
+  let text =
+    translations[lang]?.[category]?.[key] ||
+    translations["zh-CN"][category]?.[key] ||
+    key;
+
+  // 替换参数占位符
+  Object.keys(params).forEach((param) => {
+    text = text.replace(`{${param}}`, params[param]);
+  });
+
+  return text;
+};
+
 class RegexCreator {
   constructor() {
     this.currentType = "email";
@@ -89,183 +530,207 @@ class RegexCreator {
   getConfigForType(type) {
     const configs = {
       email: {
-        title: "邮箱地址配置",
+        title: getLocalizedText("emailConfig", "title"),
         options: [
           {
             name: "allowInternational",
-            label: "允许国际域名",
+            label: getLocalizedText("emailConfig", "allowInternational"),
             type: "checkbox",
             value: true,
-            description: "支持国际化域名格式",
+            description: getLocalizedText(
+              "emailConfig",
+              "allowInternationalDesc"
+            ),
           },
           {
             name: "allowSubdomains",
-            label: "允许子域名",
+            label: getLocalizedText("emailConfig", "allowSubdomains"),
             type: "checkbox",
             value: true,
-            description: "支持多级子域名",
+            description: getLocalizedText("emailConfig", "allowSubdomainsDesc"),
           },
         ],
       },
       phone: {
-        title: "手机号码配置",
+        title: getLocalizedText("phoneConfig", "title"),
         options: [
           {
             name: "country",
-            label: "国家/地区",
+            label: getLocalizedText("phoneConfig", "country"),
             type: "select",
             value: "CN",
             options: [
-              { value: "CN", label: "中国大陆" },
-              { value: "US", label: "美国" },
-              { value: "UK", label: "英国" },
+              { value: "CN", label: getLocalizedText("phoneConfig", "china") },
+              { value: "US", label: getLocalizedText("phoneConfig", "usa") },
+              { value: "UK", label: getLocalizedText("phoneConfig", "uk") },
             ],
           },
           {
             name: "allowSpaces",
-            label: "允许空格分隔",
+            label: getLocalizedText("phoneConfig", "allowSpaces"),
             type: "checkbox",
             value: false,
-            description: "如：138 1234 5678",
+            description: getLocalizedText("phoneConfig", "allowSpacesDesc"),
           },
         ],
       },
       idcard: {
-        title: "身份证号配置",
+        title: getLocalizedText("idcardConfig", "title"),
         options: [
           {
             name: "allowX",
-            label: "允许X结尾",
+            label: getLocalizedText("idcardConfig", "allowX"),
             type: "checkbox",
             value: true,
-            description: "支持身份证号最后一位为X",
+            description: getLocalizedText("idcardConfig", "allowXDesc"),
           },
           {
             name: "strictLength",
-            label: "严格长度检查",
+            label: getLocalizedText("idcardConfig", "strictLength"),
             type: "checkbox",
             value: true,
-            description: "必须为18位",
+            description: getLocalizedText("idcardConfig", "strictLengthDesc"),
           },
         ],
       },
       url: {
-        title: "URL链接配置",
+        title: getLocalizedText("urlConfig", "title"),
         options: [
           {
             name: "protocol",
-            label: "协议要求",
+            label: getLocalizedText("urlConfig", "protocol"),
             type: "select",
             value: "both",
             options: [
-              { value: "both", label: "HTTP和HTTPS" },
-              { value: "https", label: "仅HTTPS" },
-              { value: "http", label: "仅HTTP" },
+              {
+                value: "both",
+                label: getLocalizedText("urlConfig", "bothProtocol"),
+              },
+              {
+                value: "https",
+                label: getLocalizedText("urlConfig", "httpsOnly"),
+              },
+              {
+                value: "http",
+                label: getLocalizedText("urlConfig", "httpOnly"),
+              },
             ],
           },
           {
             name: "allowSubdomains",
-            label: "允许子域名",
+            label: getLocalizedText("urlConfig", "allowSubdomains"),
             type: "checkbox",
             value: true,
-            description: "支持www等子域名",
+            description: getLocalizedText("urlConfig", "allowSubdomainsDesc"),
           },
         ],
       },
       ip: {
-        title: "IP地址配置",
+        title: getLocalizedText("ipConfig", "title"),
         options: [
           {
             name: "version",
-            label: "IP版本",
+            label: getLocalizedText("ipConfig", "version"),
             type: "select",
             value: "v4",
             options: [
-              { value: "v4", label: "IPv4" },
-              { value: "v6", label: "IPv6" },
-              { value: "both", label: "IPv4和IPv6" },
+              { value: "v4", label: getLocalizedText("ipConfig", "ipv4") },
+              { value: "v6", label: getLocalizedText("ipConfig", "ipv6") },
+              { value: "both", label: getLocalizedText("ipConfig", "bothIp") },
             ],
           },
         ],
       },
       date: {
-        title: "日期格式配置",
+        title: getLocalizedText("dateConfig", "title"),
         options: [
           {
             name: "format",
-            label: "日期格式",
+            label: getLocalizedText("dateConfig", "format"),
             type: "select",
             value: "YYYY-MM-DD",
             options: [
-              { value: "YYYY-MM-DD", label: "YYYY-MM-DD" },
-              { value: "MM/DD/YYYY", label: "MM/DD/YYYY" },
-              { value: "DD/MM/YYYY", label: "DD/MM/YYYY" },
+              {
+                value: "YYYY-MM-DD",
+                label: getLocalizedText("dateConfig", "yyyyMmDd"),
+              },
+              {
+                value: "MM/DD/YYYY",
+                label: getLocalizedText("dateConfig", "mmDdYyyy"),
+              },
+              {
+                value: "DD/MM/YYYY",
+                label: getLocalizedText("dateConfig", "ddMmYyyy"),
+              },
             ],
           },
           {
             name: "separator",
-            label: "分隔符",
+            label: getLocalizedText("dateConfig", "separator"),
             type: "select",
             value: "-",
             options: [
-              { value: "-", label: "连字符 (-)" },
-              { value: "/", label: "斜杠 (/)" },
-              { value: ".", label: "点号 (.)" },
+              { value: "-", label: getLocalizedText("dateConfig", "hyphen") },
+              { value: "/", label: getLocalizedText("dateConfig", "slash") },
+              { value: ".", label: getLocalizedText("dateConfig", "dot") },
             ],
           },
         ],
       },
       number: {
-        title: "数字格式配置",
+        title: getLocalizedText("numberConfig", "title"),
         options: [
           {
             name: "allowDecimals",
-            label: "允许小数",
+            label: getLocalizedText("numberConfig", "allowDecimals"),
             type: "checkbox",
             value: true,
-            description: "支持小数点",
+            description: getLocalizedText("numberConfig", "allowDecimalsDesc"),
           },
           {
             name: "allowNegative",
-            label: "允许负数",
+            label: getLocalizedText("numberConfig", "allowNegative"),
             type: "checkbox",
             value: false,
-            description: "支持负号",
+            description: getLocalizedText("numberConfig", "allowNegativeDesc"),
           },
           {
             name: "minLength",
-            label: "最小长度",
+            label: getLocalizedText("numberConfig", "minLength"),
             type: "number",
             value: 1,
-            description: "数字最小位数",
+            description: getLocalizedText("numberConfig", "minLengthDesc"),
           },
           {
             name: "maxLength",
-            label: "最大长度",
+            label: getLocalizedText("numberConfig", "maxLength"),
             type: "number",
             value: 10,
-            description: "数字最大位数",
+            description: getLocalizedText("numberConfig", "maxLengthDesc"),
           },
         ],
       },
       custom: {
-        title: "自定义配置",
+        title: getLocalizedText("customConfig", "title"),
         options: [
           {
             name: "pattern",
-            label: "自定义模式",
+            label: getLocalizedText("customConfig", "pattern"),
             type: "textarea",
             value: "",
-            description:
-              "输入自定义正则表达式模式，支持所有正则表达式语法。例如：^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
-            placeholder:
-              "请输入您的正则表达式模式...\n\n示例：\n• 邮箱: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\n• 手机号: ^1[3-9]\\d{9}$\n• 身份证: ^\\d{17}[\\dXx]$",
+            description: getLocalizedText("customConfig", "patternDesc"),
+            placeholder: getLocalizedText("customConfig", "patternPlaceholder"),
           },
         ],
       },
     };
 
-    return configs[type] || { title: "配置", options: [] };
+    return (
+      configs[type] || {
+        title: getLocalizedText("common", "config"),
+        options: [],
+      }
+    );
   }
 
   /**
@@ -307,7 +772,8 @@ class RegexCreator {
     } else if (option.type === "number") {
       html += `<input type="number" id="${option.name}" name="${option.name}" value="${option.value}" min="1" max="100">`;
     } else if (option.type === "textarea") {
-      const placeholder = option.placeholder || "输入自定义模式...";
+      const placeholder =
+        option.placeholder || getLocalizedText("common", "inputCustomPattern");
       html += `<textarea id="${option.name}" name="${option.name}" placeholder="${placeholder}">${option.value}</textarea>`;
     }
 
@@ -541,10 +1007,16 @@ class RegexCreator {
     try {
       new RegExp(pattern);
       textarea.classList.add("pattern-valid");
-      this.showPatternValidation("✓ 正则表达式语法正确", "success");
+      this.showPatternValidation(
+        getLocalizedText("common", "regexSyntaxCorrect"),
+        "success"
+      );
     } catch (error) {
       textarea.classList.add("pattern-invalid");
-      this.showPatternValidation(`✗ 正则表达式错误: ${error.message}`, "error");
+      this.showPatternValidation(
+        `${getLocalizedText("common", "regexSyntaxError")} ${error.message}`,
+        "error"
+      );
     }
   }
 
@@ -598,12 +1070,12 @@ class RegexCreator {
       );
       if (success) {
         window.RegexGenerator.Utils.showNotification(
-          "正则表达式已复制到剪贴板",
+          getLocalizedText("common", "regexCopied"),
           "success"
         );
       } else {
         window.RegexGenerator.Utils.showNotification(
-          "复制失败，请手动复制",
+          getLocalizedText("common", "copyFailed"),
           "error"
         );
       }
@@ -632,24 +1104,34 @@ class RegexCreator {
     if (results.success) {
       if (results.matches.length > 0) {
         let html = '<div class="match-results">';
-        html += `<h4>找到 ${results.matches.length} 个匹配：</h4>`;
+        html += `<h4>${getLocalizedText("common", "foundMatches", {
+          count: results.matches.length,
+        })}</h4>`;
 
         results.matches.forEach((match, index) => {
           html += `<div class="match-item">`;
           html += `<span class="match-index">${index + 1}</span>`;
           html += `<span class="match-text">${match.match}</span>`;
-          html += `<span class="match-position">位置: ${match.index}</span>`;
+          html += `<span class="match-position">${getLocalizedText(
+            "common",
+            "position"
+          )} ${match.index}</span>`;
           html += `</div>`;
         });
 
         html += "</div>";
         resultsContainer.innerHTML = html;
       } else {
-        resultsContainer.innerHTML =
-          '<div class="no-matches">未找到匹配项</div>';
+        resultsContainer.innerHTML = `<div class="no-matches">${getLocalizedText(
+          "common",
+          "noMatches"
+        )}</div>`;
       }
     } else {
-      resultsContainer.innerHTML = `<div class="error">正则表达式错误: ${results.error}</div>`;
+      resultsContainer.innerHTML = `<div class="error">${getLocalizedText(
+        "common",
+        "regexError"
+      )} ${results.error}</div>`;
     }
   }
 
