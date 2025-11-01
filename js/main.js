@@ -6,7 +6,7 @@
 // 全局配置
 const CONFIG = {
   version: "2.0.0",
-  apiBaseUrl: "https://yourdomain.com",
+  apiBaseUrl: "https://regexcrafts.top",
   defaultLanguage: "zh",
   supportedLanguages: ["zh", "en", "es", "fr"],
 };

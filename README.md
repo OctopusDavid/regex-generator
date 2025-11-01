@@ -62,10 +62,10 @@ regex-generator/
 
 并在 `<head>` 中互相声明 hreflang：
 ```html
-<link rel="alternate" hreflang="zh" href="https://yourdomain.com/" />
-<link rel="alternate" hreflang="en" href="https://yourdomain.com/en/" />
-<link rel="alternate" hreflang="es" href="https://yourdomain.com/es/" />
-<link rel="alternate" hreflang="fr" href="https://yourdomain.com/fr/" />
+<link rel="alternate" hreflang="zh" href="https://regexcrafts.top/" />
+<link rel="alternate" hreflang="en" href="https://regexcrafts.top/en/" />
+<link rel="alternate" hreflang="es" href="https://regexcrafts.top/es/" />
+<link rel="alternate" hreflang="fr" href="https://regexcrafts.top/fr/" />
 ```
 
 ## 💰 商业化预留区域
