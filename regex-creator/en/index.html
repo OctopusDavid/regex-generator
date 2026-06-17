@@ -12,6 +12,14 @@
       name="keywords"
       content="regex generator,regular expression generator,regex tool,email regex,phone regex"
     />
+    <link rel="canonical" href="https://www.regexcrafts.top/regex-creator/en/" />
+    <meta property="og:title" content="Regex Generator - Smart Regular Expression Generator" />
+    <meta property="og:description" content="Smart regular expression generator, supports email, phone, ID card, URL and other common regex generation with visual configuration interface." />
+    <meta property="og:url" content="https://www.regexcrafts.top/regex-creator/en/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.regexcrafts.top/assets/logo.png" />
+    <meta name="twitter:card" content="summary" />
+
 
     <link rel="stylesheet" href="../../css/style.css" />
 
@@ -27,7 +35,7 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Regex Generator",
-        "url": "https://regexcrafts.top/regex-creator/en/",
+        "url": "https://www.regexcrafts.top/regex-creator/en/",
         "description": "Smart regular expression generator supporting multiple common regex patterns"
       }
     </script>
@@ -120,6 +128,53 @@
         </div>
       </section>
 
+      <section class="content-section">
+        <div class="content-card">
+          <h3>How To Use The Regex Generator</h3>
+          <p>
+            Choose the type of pattern you need, review the generated regular
+            expression, and test it with realistic sample text before copying it
+            into your project. The generator is useful for common validation tasks
+            such as email addresses, URLs, IP addresses, dates, numeric values,
+            and simple custom text rules.
+          </p>
+          <p>
+            A generated regex should be treated as a practical starting point, not
+            a universal rule. Input formats vary by country, product, database,
+            and programming language. For example, a phone number regex for a
+            local form can be much stricter than a regex used to find phone-like
+            strings in a large document.
+          </p>
+
+          <h3>When A Generated Pattern Works Best</h3>
+          <p>
+            Regex generation works best when the target format has clear boundaries:
+            a date in YYYY-MM-DD format, a hexadecimal color code, a domain name,
+            a simple username, or a number with a known decimal format. If the rule
+            has business exceptions, generate a baseline pattern first and then
+            refine it in the <a href="/regex-tester/en/">Regex Tester</a>.
+          </p>
+
+          <h3>Regex Generator FAQ</h3>
+          <p>
+            <strong>Can one regex validate every email address?</strong> Not
+            reliably. Use a practical email regex for front-end feedback, then
+            confirm important accounts with an email verification flow.
+          </p>
+          <p>
+            <strong>Why does my generated regex fail in another language?</strong>
+            Regex engines have differences in escaping, flags, lookbehind support,
+            and Unicode behavior. Test the expression in the runtime where it will
+            be used.
+          </p>
+          <p>
+            <strong>What should I do after generating a regex?</strong> Copy it to
+            the tester, add valid and invalid examples, and adjust anchors, flags,
+            or character classes until the result matches your real requirement.
+          </p>
+        </div>
+      </section>
+
       <!-- Ad slot -->
       <div class="ad-slot"></div>
 
@@ -130,6 +185,12 @@
     <footer class="footer">
       <div class="footer-content">
         <p>&copy; 2025 Regex Generator. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/terms-of-use/">Terms of Use</a>
+          <a href="/contact/">Contact</a>
+        </div>
       </div>
     </footer>
 

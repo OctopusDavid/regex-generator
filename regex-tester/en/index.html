@@ -14,9 +14,15 @@
       name="keywords"
       content="regex tester,regular expression tester,online testing tool,regex matching"
     />
+    <meta property="og:title" content="Regex Tester - Test Regular Expressions Online | Real-time Matching" />
+    <meta property="og:description" content="Free online regex tester — real-time matching with flags (g, i, m), multi-line text, match count and execution time. Quickly verify and debug regular expressions." />
+    <meta property="og:url" content="https://www.regexcrafts.top/regex-tester/en/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.regexcrafts.top/assets/logo.png" />
+    <meta name="twitter:card" content="summary" />
 
     <link rel="stylesheet" href="../../css/style.css" />
-    <link rel="canonical" href="https://regexcrafts.top/regex-tester/en/" />
+    <link rel="canonical" href="https://www.regexcrafts.top/regex-tester/en/" />
 
     <!-- hreflang links -->
     <link rel="alternate" hreflang="zh-CN" href="../../regex-tester/" />
@@ -30,7 +36,7 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Regex Tester",
-        "url": "https://regexcrafts.top/regex-tester/en/",
+        "url": "https://www.regexcrafts.top/regex-tester/en/",
         "description": "Professional online regular expression testing tool with real-time matching support"
       }
     </script>
@@ -169,6 +175,51 @@ ID Card: 110101199001011234</textarea
         </div>
       </section>
 
+      <section class="content-section">
+        <div class="content-card">
+          <h3>How To Test A Regular Expression</h3>
+          <p>
+            Paste your regular expression into the pattern field, add sample text,
+            choose the flags you want to test, and review the highlighted matches.
+            A good regex test includes both values that should match and values
+            that should not match. This makes it easier to catch patterns that are
+            too broad, too strict, or missing an important edge case.
+          </p>
+          <p>
+            The tester is especially useful when debugging extraction patterns for
+            logs, CSV-like text, URLs, dates, emails, IDs, and user-generated input.
+            It lets you see how global, case-insensitive, and multiline matching
+            changes the result before you paste the expression into application
+            code.
+          </p>
+
+          <h3>Testing Checklist</h3>
+          <p>
+            Start with anchors if the whole value must match, such as a form field.
+            Remove anchors if you are searching inside longer text. Add a few
+            invalid examples so you can detect false positives. If a match is
+            unexpectedly missing, check escaping, whitespace, line breaks, and
+            whether the regex engine supports the syntax you used.
+          </p>
+
+          <h3>Regex Tester FAQ</h3>
+          <p>
+            <strong>What does the global flag do?</strong> The global flag finds
+            every match instead of stopping after the first one.
+          </p>
+          <p>
+            <strong>When should I use multiline mode?</strong> Use multiline mode
+            when `^` and `$` should match the start and end of each line rather
+            than only the start and end of the full text.
+          </p>
+          <p>
+            <strong>Can I test generated patterns here?</strong> Yes. Generate a
+            first draft in the <a href="/regex-creator/en/">Regex Generator</a>,
+            then test it here with realistic examples and edge cases.
+          </p>
+        </div>
+      </section>
+
       <!-- Ad slot -->
       <div class="ad-slot"></div>
 
@@ -179,6 +230,12 @@ ID Card: 110101199001011234</textarea
     <footer class="footer">
       <div class="footer-content">
         <p>&copy; 2025 Regex Tester. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/terms-of-use/">Terms of Use</a>
+          <a href="/contact/">Contact</a>
+        </div>
       </div>
     </footer>
 

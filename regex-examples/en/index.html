@@ -12,6 +12,14 @@
       name="keywords"
       content="regex examples,regular expression templates,regex library,common regex,regex collection"
     />
+    <link rel="canonical" href="https://www.regexcrafts.top/regex-examples/en/" />
+    <meta property="og:title" content="Regex Examples Library - Common Regular Expression Templates" />
+    <meta property="og:description" content="Rich regular expression template library, includes email, phone, ID card, URL, date and other common regex templates with one-click copy support." />
+    <meta property="og:url" content="https://www.regexcrafts.top/regex-examples/en/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.regexcrafts.top/assets/logo.png" />
+    <meta name="twitter:card" content="summary" />
+
 
     <link rel="stylesheet" href="../../css/style.css" />
 
@@ -27,7 +35,7 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Regex Examples Library",
-        "url": "https://regexcrafts.top/regex-examples/en/",
+        "url": "https://www.regexcrafts.top/regex-examples/en/",
         "description": "Rich regular expression template library with common regex templates"
       }
     </script>
@@ -289,6 +297,198 @@
               </div>
             </div>
           </div>
+
+          <div class="example-card" data-category="format">
+            <div class="card-header">
+              <h3>Password Rule</h3>
+              <span class="category-tag">Format</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&amp;]{8,}$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">Copy</button>
+              </div>
+              <div class="description">
+                <p>Requires at least eight characters with letters and numbers.</p>
+              </div>
+              <div class="test-examples">
+                <strong>Test Examples:</strong>
+                <span class="valid">Valid: pass1234</span>
+                <span class="invalid">Invalid: password</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="text">
+            <div class="card-header">
+              <h3>Username</h3>
+              <span class="category-tag">Text</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^[a-zA-Z0-9_]{3,20}$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">Copy</button>
+              </div>
+              <div class="description">
+                <p>Matches 3-20 character usernames with letters, numbers, and underscores.</p>
+              </div>
+              <div class="test-examples">
+                <strong>Test Examples:</strong>
+                <span class="valid">Valid: user_2026</span>
+                <span class="invalid">Invalid: ab</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="format">
+            <div class="card-header">
+              <h3>Hex Color</h3>
+              <span class="category-tag">Format</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">Copy</button>
+              </div>
+              <div class="description">
+                <p>Matches CSS hex color values such as #fff or #1a73e8.</p>
+              </div>
+              <div class="test-examples">
+                <strong>Test Examples:</strong>
+                <span class="valid">Valid: #1a73e8</span>
+                <span class="invalid">Invalid: #12zz99</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="identity">
+            <div class="card-header">
+              <h3>UUID</h3>
+              <span class="category-tag">Identity</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">Copy</button>
+              </div>
+              <div class="description">
+                <p>Matches common UUID versions 1-5 with standard hyphen groups.</p>
+              </div>
+              <div class="test-examples">
+                <strong>Test Examples:</strong>
+                <span class="valid">Valid: 550e8400-e29b-41d4-a716-446655440000</span>
+                <span class="invalid">Invalid: 550e8400</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="text">
+            <div class="card-header">
+              <h3>URL Slug</h3>
+              <span class="category-tag">Text</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^[a-z0-9]+(?:-[a-z0-9]+)*$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">Copy</button>
+              </div>
+              <div class="description">
+                <p>Matches lowercase URL slugs made from words separated by hyphens.</p>
+              </div>
+              <div class="test-examples">
+                <strong>Test Examples:</strong>
+                <span class="valid">Valid: regex-examples-guide</span>
+                <span class="invalid">Invalid: Regex Examples</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="network">
+            <div class="card-header">
+              <h3>Domain Name</h3>
+              <span class="category-tag">Network</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^(?!-)(?:[a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,}$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">Copy</button>
+              </div>
+              <div class="description">
+                <p>Matches simple domain names with one or more labels and a TLD.</p>
+              </div>
+              <div class="test-examples">
+                <strong>Test Examples:</strong>
+                <span class="valid">Valid: www.example.com</span>
+                <span class="invalid">Invalid: -example.com</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-card" data-category="format">
+            <div class="card-header">
+              <h3>File Extension</h3>
+              <span class="category-tag">Format</span>
+            </div>
+            <div class="card-content">
+              <div class="regex-pattern">
+                <code>^.+\.(jpg|jpeg|png|gif|webp|pdf)$</code>
+                <button class="copy-btn" onclick="copyRegex(this)">Copy</button>
+              </div>
+              <div class="description">
+                <p>Matches filenames with common image or PDF extensions.</p>
+              </div>
+              <div class="test-examples">
+                <strong>Test Examples:</strong>
+                <span class="valid">Valid: report.pdf</span>
+                <span class="invalid">Invalid: report.exe</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="content-card">
+          <h3>How To Choose A Regex Example</h3>
+          <p>
+            Start with the closest template, then adjust it for your input format.
+            Some examples are strict full-value validators, while others are better
+            for finding text inside a longer document. Anchors such as `^` and `$`
+            mean the entire string must match; removing them turns many validators
+            into search patterns.
+          </p>
+          <p>
+            Pay attention to the regex engine used by your project. JavaScript,
+            Python, Java, PHP, and database engines support many of the same basics
+            but differ around Unicode classes, lookbehind, escaping, and named
+            groups. Always test a template with real valid and invalid examples
+            before using it in production.
+          </p>
+
+          <h3>JavaScript Regex Flags</h3>
+          <p>
+            Common JavaScript flags include `g` for global matching, `i` for
+            case-insensitive matching, and `m` for multiline anchors. These flags
+            can change the result even when the pattern text is unchanged, so test
+            them deliberately in the <a href="/regex-tester/en/">Regex Tester</a>.
+          </p>
+
+          <h3>Regex Examples FAQ</h3>
+          <p>
+            <strong>Can I copy these regex examples directly?</strong> Yes, but
+            treat them as starting points. Adjust them for your exact rules and
+            test them with edge cases.
+          </p>
+          <p>
+            <strong>Why are some examples strict?</strong> Validators often use
+            anchors to require a full-string match. Search patterns are usually
+            more flexible and may omit anchors.
+          </p>
+          <p>
+            <strong>Where should I test an example?</strong> Copy it into the
+            <a href="/regex-tester/en/">Regex Tester</a> or check syntax in the
+            <a href="/regex-checker/en/">Regex Checker</a> before using it.
+          </p>
         </div>
       </section>
 
@@ -302,6 +502,12 @@
     <footer class="footer">
       <div class="footer-content">
         <p>&copy; 2025 Regex Examples Library. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/terms-of-use/">Terms of Use</a>
+          <a href="/contact/">Contact</a>
+        </div>
       </div>
     </footer>
 
